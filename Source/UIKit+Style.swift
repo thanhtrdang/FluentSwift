@@ -9,6 +9,18 @@
 import UIKit
 
 //MARK: - Color -
+//Dynamic: https://github.com/yannickl/DynamicColor
+//From Image: https://github.com/jathu/UIImageColors
+//Night mode: https://github.com/Draveness/NightNight
+//Random: https://github.com/onevcat/RandomColorSwift
+// Hex <-> Color
+//Xcode: https://github.com/omz/ColorSense-for-Xcode
+//Mac app: https://github.com/oscardelben/Color-Picker-Pro
+//Predefined: https://github.com/bennyguitar/Colours
+//Gradient:
+
+//Full? https://github.com/ViccAlexander/Chameleon
+
 extension UIColor {
     /*
      https://github.com/IBAnimatable/IBAnimatable
@@ -65,6 +77,14 @@ extension UIColor {
 
 //MARK: - Font -
 //https://www.uber.design
+//https://github.com/Nirma/UIFontComplete
+//Icon font:
+//    https://github.com/PrideChung/FontAwesomeKit,
+//    https://github.com/FortAwesome/Font-Awesome
+//    https://github.com/alexdrone/ios-fontawesome
+//    https://github.com/dzenbot/Iconic
+//    https://github.com/Vaberer/Font-Awesome-Swift
+//    https://github.com/ranesr/SwiftIcons
 extension UIFont {
     static let mega     = UIFont.systemFont(ofSize: 36.0)
     static let h1       = UIFont.systemFont(ofSize: 28.0)

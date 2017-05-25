@@ -25,7 +25,8 @@ class ViewController: UIViewController {
     }
     
     @objc fileprivate func handleTap() {
-        print(ViewController.className)
+        print(Device.name)
+        print(Device.languageCode)
     }
 
 }

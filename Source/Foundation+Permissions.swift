@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+//https://github.com/nickoneill/PermissionScope
+//https://github.com/delba/Permission
+//https://github.com/IvanVorobei/RequestPermission
+//https://github.com/sunshinejr/RxPermission

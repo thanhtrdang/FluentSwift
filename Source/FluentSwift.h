@@ -42,3 +42,10 @@ FOUNDATION_EXPORT const unsigned char FluentSwiftVersionString[];
 
 //https://github.com/radex/SwiftyUserDefaults
 //https://github.com/krzysztofzablocki/Sourcery
+
+//Tweaks
+//https://github.com/mac-cain13/SwiftTweaks
+//https://github.com/facebook/Tweaks
+//https://github.com/johnno1962/injectionforxcode
+
+//Version upgrade
