@@ -3,4 +3,5 @@ use_frameworks!
 
 target 'FluentSwift' do
 	pod 'Then'
+    pod 'Material'
 end

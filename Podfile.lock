@@ -1,12 +1,17 @@
 PODS:
+  - Material (2.6.3):
+    - Material/Core (= 2.6.3)
+  - Material/Core (2.6.3)
   - Then (2.1.0)
 
 DEPENDENCIES:
+  - Material
   - Then
 
 SPEC CHECKSUMS:
+  Material: af607a7ec0e9978ef85cf189a3d8ceeeb650400f
   Then: 8496793c8fcac95482b943909b440724c7d8d82c
 
-PODFILE CHECKSUM: 879329de17eaacde31b37a4db3c14486a9d74ecb
+PODFILE CHECKSUM: 8750709bd51eb1b2eabab50d985288ea3ccde5b8
 
 COCOAPODS: 1.2.1

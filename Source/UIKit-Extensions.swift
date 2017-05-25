@@ -8,6 +8,90 @@
 
 import UIKit
 
+//MARK: Application
+//https://github.com/CosmicMind/Material
+public struct Application {
+    /// A reference to the main UIWindow.
+    public static var keyWindow: UIWindow? {
+        return UIApplication.shared.keyWindow
+    }
+    
+    /// A Boolean indicating if the device is in Landscape mode.
+    public static var isLandscape: Bool {
+        return UIApplication.shared.statusBarOrientation.isLandscape
+    }
+    
+    /// A Boolean indicating if the device is in Portrait mode.
+    public static var isPortrait: Bool {
+        return !isLandscape
+    }
+    
+    /// The current UIInterfaceOrientation value.
+    public static var orientation: UIInterfaceOrientation {
+        return UIApplication.shared.statusBarOrientation
+    }
+    
+    /// Retrieves the device status bar style.
+    public static var statusBarStyle: UIStatusBarStyle {
+        get {
+            return UIApplication.shared.statusBarStyle
+        }
+        set(value) {
+            UIApplication.shared.statusBarStyle = value
+        }
+    }
+    
+    /// Retrieves the device status bar hidden state.
+    public static var isStatusBarHidden: Bool {
+        get {
+            return UIApplication.shared.isStatusBarHidden
+        }
+        set(value) {
+            UIApplication.shared.isStatusBarHidden = value
+        }
+    }
+    
+    /**
+     A boolean that indicates based on iPhone rules if the
+     status bar should be shown.
+     */
+    public static var shouldStatusBarBeHidden: Bool {
+        return isLandscape && .phone == Device.userInterfaceIdiom
+    }
+    
+    /// A reference to the user interface layout direction.
+    public static var userInterfaceLayoutDirection: UIUserInterfaceLayoutDirection {
+        return UIApplication.shared.userInterfaceLayoutDirection
+    }
+}
+
+//MARK: Screen
+//https://github.com/CosmicMind/Material
+public struct Screen {
+    /// Retrieves the device bounds.
+    public static var bounds: CGRect {
+        return UIScreen.main.bounds
+    }
+    
+    /// Retrieves the device width.
+    public static var width: CGFloat {
+        return bounds.width
+    }
+    
+    /// Retrieves the device height.
+    public static var height: CGFloat {
+        return bounds.height
+    }
+    
+    /// Retrieves the device scale.
+    public static var scale: CGFloat {
+        return UIScreen.main.scale
+    }
+}
+
+
+//MARK: Color
+//https://github.com/IBAnimatable/IBAnimatable
 extension UIColor {
     public convenience init(hexString: String) {
         let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
@@ -33,6 +117,8 @@ extension UIColor {
     static let grey20 = UIColor(hexString: "#F9F9F9")
 }
 
+//MARK: Font
+//https://www.uber.design
 extension UIFont {
     static let mega     = UIFont.systemFont(ofSize: 36.0)
     static let h1       = UIFont.systemFont(ofSize: 28.0)
@@ -49,6 +135,8 @@ extension UIFont {
     static let h6Medium = UIFont.systemFont(ofSize: 12.0, weight: UIFontWeightMedium)
 }
 
+
+//MARK: UIView
 extension UIView {
     func styleShadow() -> Self {
         layer.shadowColor = UIColor.lightGray.cgColor
@@ -61,6 +149,9 @@ extension UIView {
     }
 }
 
+//MARK: CALayer
+
+//MARK: Image
 extension UIImage {
     static let empty = UIImage()
 }
