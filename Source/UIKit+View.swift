@@ -8,22 +8,76 @@
 
 import UIKit
 
-//MARK: - UIView -
+//MARK: UIView -
 extension UIView {
-    func styleShadow() -> Self {
-        layer.shadowColor = UIColor.lightGray.cgColor
-        layer.shadowOpacity = 0.5
-        layer.shadowRadius = 10
-        layer.shadowOffset = CGSize(width: 5, height: 10)
-        layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: 10).cgPath
-        
+    
+}
+
+//MARK: - CALayer -
+extension CALayer {
+    
+}
+
+//MARK: - Button -
+public extension UIButton {
+    @discardableResult
+    public func text(_ t: String) -> Self {
+        setTitle(t, for: UIControlState())
+        return self
+    }
+    
+    /**
+     Shortcut for `text = NSLocalizedString("X", comment: "")`
+     */
+    @discardableResult
+    public func text(byKey key: String) -> Self {
+        text(NSLocalizedString(key, comment: ""))
+        return self
+    }
+    
+    @discardableResult
+    public func image(_ name: String) -> Self {
+        setImage(UIImage(named:name), for: UIControlState())
         return self
     }
 }
 
-//MARK: CALayer
+//MARK: - TextField -
+public extension UITextField {
+    @discardableResult
+    public func placeholder(_ text: String) -> Self {
+        placeholder = text
+        return self
+    }
+}
 
-//MARK: - Image - 
+//MARK: - Label -
+public extension UILabel {
+    @discardableResult
+    public func text(_ text: String) -> Self {
+        self.text = text
+        return self
+    }
+    
+    /**
+        Shortcut for `text = NSLocalizedString("X", comment: "")`
+     */
+    @discardableResult
+    public func text(byKey key: String) -> Self {
+        text(NSLocalizedString(key, comment: ""))
+        return self
+    }
+}
+
+//MARK: - Image -
 extension UIImage {
     static let empty = UIImage()
+}
+
+extension UIImageView {
+    @discardableResult
+    public func image(_ name: String) -> Self {
+        image = UIImage(named: name)
+        return self
+    }
 }

@@ -41,3 +41,4 @@ FOUNDATION_EXPORT const unsigned char FluentSwiftVersionString[];
 //https://medium.com/swift-programming/swift-uiview-animation-syntax-sugar-d40448fe1fed
 
 //https://github.com/radex/SwiftyUserDefaults
+//https://github.com/krzysztofzablocki/Sourcery
