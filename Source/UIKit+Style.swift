@@ -69,10 +69,10 @@ extension UIColor {
         )
     }
     
-    static let grey80 = UIColor(hexString: "#525760")
-    static let grey60 = UIColor(hexString: "#EDEDED")
-    static let grey40 = UIColor(hexString: "#EDEDED")
-    static let grey20 = UIColor(hexString: "#F9F9F9")
+    public static let grey80 = UIColor(hexString: "#525760")
+    public static let grey60 = UIColor(hexString: "#EDEDED")
+    public static let grey40 = UIColor(hexString: "#EDEDED")
+    public static let grey20 = UIColor(hexString: "#F9F9F9")
 }
 
 //MARK: - Font -
@@ -86,17 +86,17 @@ extension UIColor {
 //    https://github.com/Vaberer/Font-Awesome-Swift
 //    https://github.com/ranesr/SwiftIcons
 extension UIFont {
-    static let mega     = UIFont.systemFont(ofSize: 36.0)
-    static let h1       = UIFont.systemFont(ofSize: 28.0)
-    static let h1Medium = UIFont.systemFont(ofSize: 28.0, weight: UIFontWeightMedium)
-    static let h2       = UIFont.systemFont(ofSize: 24.0)
-    static let h2Medium = UIFont.systemFont(ofSize: 24.0, weight: UIFontWeightMedium)
-    static let h3       = UIFont.systemFont(ofSize: 18.0)
-    static let h3Medium = UIFont.systemFont(ofSize: 18.0, weight: UIFontWeightMedium)
-    static let h4       = UIFont.systemFont(ofSize: 16.0)
-    static let h4Medium = UIFont.systemFont(ofSize: 16.0, weight: UIFontWeightMedium)
-    static let h5       = UIFont.systemFont(ofSize: 14.0)
-    static let h5Medium = UIFont.systemFont(ofSize: 14.0, weight: UIFontWeightMedium)
-    static let h6       = UIFont.systemFont(ofSize: 12.0)
-    static let h6Medium = UIFont.systemFont(ofSize: 12.0, weight: UIFontWeightMedium)
+    public static let mega     = UIFont.systemFont(ofSize: 36.0)
+    public static let h1       = UIFont.systemFont(ofSize: 28.0)
+    public static let h1Medium = UIFont.systemFont(ofSize: 28.0, weight: UIFontWeightMedium)
+    public static let h2       = UIFont.systemFont(ofSize: 24.0)
+    public static let h2Medium = UIFont.systemFont(ofSize: 24.0, weight: UIFontWeightMedium)
+    public static let h3       = UIFont.systemFont(ofSize: 18.0)
+    public static let h3Medium = UIFont.systemFont(ofSize: 18.0, weight: UIFontWeightMedium)
+    public static let h4       = UIFont.systemFont(ofSize: 16.0)
+    public static let h4Medium = UIFont.systemFont(ofSize: 16.0, weight: UIFontWeightMedium)
+    public static let h5       = UIFont.systemFont(ofSize: 14.0)
+    public static let h5Medium = UIFont.systemFont(ofSize: 14.0, weight: UIFontWeightMedium)
+    public static let h6       = UIFont.systemFont(ofSize: 12.0)
+    public static let h6Medium = UIFont.systemFont(ofSize: 12.0, weight: UIFontWeightMedium)
 }
