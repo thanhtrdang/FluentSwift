@@ -86,25 +86,6 @@ extension UIColor {
 //    https://github.com/Vaberer/Font-Awesome-Swift
 //    https://github.com/ranesr/SwiftIcons
 
-//@available(iOS 8.2, *)
-//public let UIFontWeightUltraLight: CGFloat
-//@available(iOS 8.2, *)
-//public let UIFontWeightThin: CGFloat
-//@available(iOS 8.2, *)
-//public let UIFontWeightLight: CGFloat
-//@available(iOS 8.2, *)
-//public let UIFontWeightRegular: CGFloat
-//@available(iOS 8.2, *)
-//public let UIFontWeightMedium: CGFloat
-//@available(iOS 8.2, *)
-//public let UIFontWeightSemibold: CGFloat
-//@available(iOS 8.2, *)
-//public let UIFontWeightBold: CGFloat
-//@available(iOS 8.2, *)
-//public let UIFontWeightHeavy: CGFloat
-//@available(iOS 8.2, *)
-//public let UIFontWeightBlack: CGFloat
-
 public enum FontWeight {
     case ultraLight
     case thin
@@ -155,15 +136,9 @@ extension UIFont {
                 systemFontName = "HelveticaNeue-Light"
             case .regular:
                 systemFontName = "HelveticaNeue"
-            case .medium:
+            case .medium, .semibold:
                 systemFontName = "HelveticaNeue-Medium"
-            case .semibold:
-                systemFontName = "HelveticaNeue-Medium"
-            case .bold:
-                systemFontName = "HelveticaNeue-Bold"
-            case .heavy:
-                systemFontName = "HelveticaNeue-Bold"
-            case .black:
+            case .bold, .heavy, .black:
                 systemFontName = "HelveticaNeue-Bold"
             }
             
