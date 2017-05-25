@@ -107,4 +107,19 @@ public struct Device {
     public static var isSimulator: Bool = {
         return Device.model == .simulator
     }()
+    
+    public static var osName: String = {
+        return UIDevice.current.systemName
+    }()
+    public static var osVersion: String = {
+        return UIDevice.current.systemVersion
+    }()
+    
+    public static var name: String = {
+        return UIDevice.current.name
+    }()
+    
+    public static var languageCode: String = {
+        return Bundle.main.preferredLocalizations[0]
+    }()
 }
