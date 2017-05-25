@@ -1,69 +1,14 @@
 //
-//  Foundation-Extensions.swift
+//  UIKit+Device.swift
 //  FluentSwift
 //
 //  Created by Thanh Dang on 5/25/17.
 //  Copyright © 2017 Thanh Dang. All rights reserved.
 //
-
 import Foundation
-import CoreGraphics
 import UIKit
 
-//MARK: Then
-//https://github.com/devxoul/Then
-public protocol Then {}
-
-public extension Then where Self: Any {
-    
-    /// Makes it available to set properties with closures just after initializing.
-    ///
-    ///     let frame = CGRect().with {
-    ///       $0.origin.x = 10
-    ///       $0.size.width = 100
-    ///     }
-    public func with(_ block: (inout Self) -> Void) -> Self {
-        var copy = self
-        block(&copy)
-        return copy
-    }
-    
-    /// Makes it available to execute something with closures.
-    ///
-    ///     UserDefaults.standard.do {
-    ///       $0.set("devxoul", forKey: "username")
-    ///       $0.set("devxoul@gmail.com", forKey: "email")
-    ///       $0.synchronize()
-    ///     }
-    public func `do`(_ block: (Self) -> Void) {
-        block(self)
-    }
-    
-}
-
-public extension Then where Self: AnyObject {
-    
-    /// Makes it available to set properties with closures just after initializing.
-    ///
-    ///     let label = UILabel().then {
-    ///       $0.textAlignment = .Center
-    ///       $0.textColor = UIColor.blackColor()
-    ///       $0.text = "Hello, World!"
-    ///     }
-    public func then(_ block: (Self) -> Void) -> Self {
-        block(self)
-        return self
-    }
-    
-}
-
-extension NSObject: Then {}
-extension CGPoint: Then {}
-extension CGRect: Then {}
-extension CGSize: Then {}
-extension CGVector: Then {}
-
-//MARK: Device
+//MARK: - Device -
 //https://github.com/CosmicMind/Material
 public enum DeviceModel {
     case iPodTouch5
@@ -98,7 +43,7 @@ public enum DeviceModel {
 
 public struct Device {
     /// Gets the Device identifier String.
-    public static var identifier: String {
+    public static var identifier: String = {
         var systemInfo = utsname()
         uname(&systemInfo)
         
@@ -110,10 +55,10 @@ public struct Device {
             return identifier + String(UnicodeScalar(UInt8(value)))
         }
         return identifier
-    }
+    }()
     
     /// Gets the model name for the device.
-    public static var model: DeviceModel {
+    public static var model: DeviceModel = {
         switch identifier {
         case "iPod5,1":										return .iPodTouch5
         case "iPod7,1":										return .iPodTouch6
@@ -144,10 +89,22 @@ public struct Device {
         case "i386", "x86_64":								return .simulator
         default:											return .unknown
         }
-    }
+    }()
     
     /// Retrieves the current device type.
-    public static var userInterfaceIdiom: UIUserInterfaceIdiom {
+    public static var userInterfaceIdiom: UIUserInterfaceIdiom = {
         return UIDevice.current.userInterfaceIdiom
-    }
+    }()
+    
+    public static var isPhone: Bool = {
+        return Device.userInterfaceIdiom == .phone
+    }()
+    
+    public static var isPad: Bool = {
+        return Device.userInterfaceIdiom == .pad
+    }()
+    
+    public static var isSimulator: Bool = {
+        return Device.model == .simulator
+    }()
 }

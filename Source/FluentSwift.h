@@ -26,3 +26,18 @@
 
 FOUNDATION_EXPORT double FluentSwiftVersionNumber;
 FOUNDATION_EXPORT const unsigned char FluentSwiftVersionString[];
+
+
+//https://github.com/hyperoslo/Sugar
+//https://github.com/devxoul/Then
+//https://github.com/CosmicMind/Material
+//https://github.com/duemunk/Async
+//https://github.com/nodes-ios/Codemine
+
+//https://github.com/quick/nimble
+//https://github.com/quick/quick
+
+//http://nshipster.com/swift-documentation/
+//https://medium.com/swift-programming/swift-uiview-animation-syntax-sugar-d40448fe1fed
+
+//https://github.com/radex/SwiftyUserDefaults

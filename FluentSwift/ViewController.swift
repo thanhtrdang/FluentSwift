@@ -21,6 +21,11 @@ class ViewController: UIViewController {
         
         view.addSubview(label)
         
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
+    }
+    
+    @objc fileprivate func handleTap() {
+        print(ViewController.className)
     }
 
 }
