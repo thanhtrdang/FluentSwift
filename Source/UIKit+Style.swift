@@ -85,18 +85,105 @@ extension UIColor {
 //    https://github.com/dzenbot/Iconic
 //    https://github.com/Vaberer/Font-Awesome-Swift
 //    https://github.com/ranesr/SwiftIcons
+
+//@available(iOS 8.2, *)
+//public let UIFontWeightUltraLight: CGFloat
+//@available(iOS 8.2, *)
+//public let UIFontWeightThin: CGFloat
+//@available(iOS 8.2, *)
+//public let UIFontWeightLight: CGFloat
+//@available(iOS 8.2, *)
+//public let UIFontWeightRegular: CGFloat
+//@available(iOS 8.2, *)
+//public let UIFontWeightMedium: CGFloat
+//@available(iOS 8.2, *)
+//public let UIFontWeightSemibold: CGFloat
+//@available(iOS 8.2, *)
+//public let UIFontWeightBold: CGFloat
+//@available(iOS 8.2, *)
+//public let UIFontWeightHeavy: CGFloat
+//@available(iOS 8.2, *)
+//public let UIFontWeightBlack: CGFloat
+
+public enum FontWeight {
+    case ultraLight
+    case thin
+    case light
+    case regular
+    case medium
+    case semibold
+    case bold
+    case heavy
+    case black
+}
+
+extension UIFont {
+    @available(iOS 7, *)
+    public class func systemFont(ofSize fontSize: CGFloat, weight: FontWeight) -> UIFont {
+        if #available(iOS 8.2, *) {
+            let fontWeight: CGFloat
+            switch weight {
+            case .ultraLight:
+                fontWeight = UIFontWeightUltraLight
+            case .thin:
+                fontWeight = UIFontWeightThin
+            case .light:
+                fontWeight = UIFontWeightLight
+            case .regular:
+                fontWeight = UIFontWeightRegular
+            case .medium:
+                fontWeight = UIFontWeightMedium
+            case .semibold:
+                fontWeight = UIFontWeightSemibold
+            case .bold:
+                fontWeight = UIFontWeightBold
+            case .heavy:
+                fontWeight = UIFontWeightHeavy
+            case .black:
+                fontWeight = UIFontWeightBlack
+            }
+            
+            return UIFont.systemFont(ofSize: fontSize, weight: fontWeight)
+        } else {
+            let systemFontName: String
+            switch weight {
+            case .ultraLight:
+                systemFontName = "HelveticaNeue-UltraLight"
+            case .thin:
+                systemFontName = "HelveticaNeue-Thin"
+            case .light:
+                systemFontName = "HelveticaNeue-Light"
+            case .regular:
+                systemFontName = "HelveticaNeue"
+            case .medium:
+                systemFontName = "HelveticaNeue-Medium"
+            case .semibold:
+                systemFontName = "HelveticaNeue-Medium"
+            case .bold:
+                systemFontName = "HelveticaNeue-Bold"
+            case .heavy:
+                systemFontName = "HelveticaNeue-Bold"
+            case .black:
+                systemFontName = "HelveticaNeue-Bold"
+            }
+            
+            return UIFont(name: systemFontName, size: fontSize)!
+        }
+    }
+}
+
 extension UIFont {
     public static let mega     = UIFont.systemFont(ofSize: 36.0)
     public static let h1       = UIFont.systemFont(ofSize: 28.0)
-    public static let h1Medium = UIFont.systemFont(ofSize: 28.0, weight: UIFontWeightMedium)
+    public static let h1Medium = UIFont.systemFont(ofSize: 28.0, weight: .medium)
     public static let h2       = UIFont.systemFont(ofSize: 24.0)
-    public static let h2Medium = UIFont.systemFont(ofSize: 24.0, weight: UIFontWeightMedium)
+    public static let h2Medium = UIFont.systemFont(ofSize: 24.0, weight: .medium)
     public static let h3       = UIFont.systemFont(ofSize: 18.0)
-    public static let h3Medium = UIFont.systemFont(ofSize: 18.0, weight: UIFontWeightMedium)
+    public static let h3Medium = UIFont.systemFont(ofSize: 18.0, weight: .medium)
     public static let h4       = UIFont.systemFont(ofSize: 16.0)
-    public static let h4Medium = UIFont.systemFont(ofSize: 16.0, weight: UIFontWeightMedium)
+    public static let h4Medium = UIFont.systemFont(ofSize: 16.0, weight: .medium)
     public static let h5       = UIFont.systemFont(ofSize: 14.0)
-    public static let h5Medium = UIFont.systemFont(ofSize: 14.0, weight: UIFontWeightMedium)
+    public static let h5Medium = UIFont.systemFont(ofSize: 14.0, weight: .medium)
     public static let h6       = UIFont.systemFont(ofSize: 12.0)
-    public static let h6Medium = UIFont.systemFont(ofSize: 12.0, weight: UIFontWeightMedium)
+    public static let h6Medium = UIFont.systemFont(ofSize: 12.0, weight: .medium)
 }
