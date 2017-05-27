@@ -14,6 +14,7 @@
 		6D06DB251ED93E7E0030D674 /* UIKit+ViewShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D06DB241ED93E7E0030D674 /* UIKit+ViewShadow.swift */; };
 		6D06DB271ED93EE50030D674 /* UIKit+ViewGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D06DB261ED93EE50030D674 /* UIKit+ViewGradient.swift */; };
 		6D06DB291ED9464D0030D674 /* UIKit+ViewBlurEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D06DB281ED9464D0030D674 /* UIKit+ViewBlurEffect.swift */; };
+		6D06DB2D1ED948FE0030D674 /* UIKit+ViewColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D06DB2C1ED948FE0030D674 /* UIKit+ViewColor.swift */; };
 		6D7E73BD1ED68C22006E11C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7E73BC1ED68C22006E11C2 /* AppDelegate.swift */; };
 		6D7E73BF1ED68C22006E11C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7E73BE1ED68C22006E11C2 /* ViewController.swift */; };
 		6D7E73C41ED68C22006E11C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D7E73C31ED68C22006E11C2 /* Assets.xcassets */; };
@@ -57,6 +58,7 @@
 		6D06DB241ED93E7E0030D674 /* UIKit+ViewShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+ViewShadow.swift"; sourceTree = "<group>"; };
 		6D06DB261ED93EE50030D674 /* UIKit+ViewGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+ViewGradient.swift"; sourceTree = "<group>"; };
 		6D06DB281ED9464D0030D674 /* UIKit+ViewBlurEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+ViewBlurEffect.swift"; sourceTree = "<group>"; };
+		6D06DB2C1ED948FE0030D674 /* UIKit+ViewColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+ViewColor.swift"; sourceTree = "<group>"; };
 		6D7E73B91ED68C22006E11C2 /* FluentSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FluentSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D7E73BC1ED68C22006E11C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6D7E73BE1ED68C22006E11C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				6D7E73F61ED6BA40006E11C2 /* UIKit+Application.swift */,
 				6D7E73FA1ED6BAE3006E11C2 /* UIKit+Style.swift */,
 				6D7E73EC1ED68D1F006E11C2 /* UIKit+View.swift */,
+				6D06DB2C1ED948FE0030D674 /* UIKit+ViewColor.swift */,
 				6D06DB1E1ED93A240030D674 /* UIKit+ViewBorder.swift */,
 				6D06DB201ED93C920030D674 /* UIKit+ViewCorner.swift */,
 				6D06DB221ED93D420030D674 /* UIKit+ViewMask.swift */,
@@ -398,6 +401,7 @@
 				6D7E73F31ED6B984006E11C2 /* Foundation+Init.swift in Sources */,
 				6D7E73ED1ED68D1F006E11C2 /* UIKit+View.swift in Sources */,
 				6D06DB291ED9464D0030D674 /* UIKit+ViewBlurEffect.swift in Sources */,
+				6D06DB2D1ED948FE0030D674 /* UIKit+ViewColor.swift in Sources */,
 				6D7E73F91ED6BA71006E11C2 /* UIKit+Screen.swift in Sources */,
 				6D7E73F11ED6B8E9006E11C2 /* Foundation+Async.swift in Sources */,
 				6D06DB251ED93E7E0030D674 /* UIKit+ViewShadow.swift in Sources */,
