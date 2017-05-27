@@ -15,3 +15,4 @@ import Foundation
 //https://github.com/gkaimakas/SwiftValidators
 //https://github.com/raywenderlich/swift-algorithm-club (string part)
 //https://github.com/ArtSabintsev/Guitar
+//URITemplate

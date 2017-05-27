@@ -8,6 +8,9 @@
 
 import UIKit
 
+//http://www.jessesquires.com/swift-namespaced-constants/
+//https://medium.com/@gurdeep060289/color-image-new-literals-in-the-cocoa-town-7ef4f2710194
+
 //MARK: - Image -
 extension UIImage {
     static let empty = UIImage()
