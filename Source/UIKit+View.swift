@@ -58,16 +58,3 @@ public extension UILabel {
         return self
     }
 }
-
-//MARK: - Image -
-extension UIImage {
-    static let empty = UIImage()
-}
-
-extension UIImageView {
-    @discardableResult
-    public func image(_ name: String) -> Self {
-        image = UIImage(named: name)
-        return self
-    }
-}

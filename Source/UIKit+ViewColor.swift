@@ -11,7 +11,7 @@ import UIKit
 // MARK: Fill -
 extension UIView {
     @discardableResult
-    public func fill(color: UIColor, opacity: CGFloat) -> Self {
+    public func fill(color: UIColor, opacity: CGFloat = 1) -> Self {
         configBackground(color: color)
         configOpacity(opacity: opacity)
         
@@ -19,7 +19,7 @@ extension UIView {
     }
     
     @discardableResult
-    public func fill(predefinedType: ColorType, opacity: CGFloat) -> Self {
+    public func fill(predefinedType: ColorType, opacity: CGFloat = 1) -> Self {
         configBackground(color: predefinedType.color)
         configOpacity(opacity: opacity)
         
