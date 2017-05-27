@@ -47,6 +47,8 @@ import UIKit
 
 
 //https://github.com/delba/TextAttributes
+//https://github.com/Nirma/Attributed
+//https://github.com/zats/Tribute
 //MARK: - TextAttributes
 public enum LigatureStyle: Int {
     case none
@@ -77,6 +79,8 @@ public enum TextEffect {
     }
 }
 
+public typealias TextAttributesBlock = () -> TextAttributes
+
 open class TextAttributes {
     /// The attributes dictionary.
     open fileprivate(set) var dictionary: [String: Any] = [:]
@@ -90,6 +94,10 @@ open class TextAttributes {
         dictionary[NSParagraphStyleAttributeName] = paragraphStyle
     }
     
+    fileprivate init(dictionary: [String: Any]) {
+        self.dictionary = dictionary
+    }
+    
     /**
      Creates a copy of the receiver.
      
@@ -100,13 +108,13 @@ open class TextAttributes {
         
         clone.dictionary = dictionary
         
-            if let shadow = shadow?.copy() as? NSShadow {
-                clone.shadow = shadow
-            }
-            
-            clone.attachment = attachment
-            
-            clone.paragraphStyle = paragraphStyle.clone()
+        if let shadow = shadow?.copy() as? NSShadow {
+            clone.shadow = shadow
+        }
+        
+        clone.attachment = attachment
+        
+        clone.paragraphStyle = paragraphStyle.clone()
         
         return clone
     }
@@ -1136,77 +1144,77 @@ open class TextAttributes {
     }
 }
 
-    extension TextAttributes {
-        // MARK: - Shadow
-        
-        /// The shadow attribute.
-        public var shadow: NSShadow? {
-            get {
-                return dictionary[NSShadowAttributeName] as? NSShadow
-            }
-            set {
-                dictionary[NSShadowAttributeName] = newValue
-            }
+extension TextAttributes {
+    // MARK: - Shadow
+    
+    /// The shadow attribute.
+    public var shadow: NSShadow? {
+        get {
+            return dictionary[NSShadowAttributeName] as? NSShadow
         }
-        
-        /**
-         Sets the shadow attribute and returns the receiver.
-         
-         - parameter color:      The color of the shadow.
-         - parameter offset:     The offset values of the shadow.
-         - parameter blurRadius: The blur radius of the shadow.
-         
-         - returns: The receiver.
-         */
-        @discardableResult
-        public func shadow(color: AnyObject?, offset: CGSize, blurRadius: CGFloat) -> Self {
-            return shadow({
-                let shadow = NSShadow()
-                shadow.shadowColor = color
-                shadow.shadowOffset = offset
-                shadow.shadowBlurRadius = blurRadius
-                return shadow
-            }() as NSShadow)
-        }
-        
-        /**
-         Sets the shadow attribute and returns the receiver.
-         
-         - parameter shadow: The shadow.
-         
-         - returns: The receiver.
-         */
-        @discardableResult
-        public func shadow(_ shadow: NSShadow?) -> Self {
-            self.shadow = shadow
-            return self
-        }
-        
-        // MARK: - Attachment
-        
-        /// The attachment attribute.
-        public var attachment: NSTextAttachment? {
-            get {
-                return dictionary[NSAttachmentAttributeName] as? NSTextAttachment
-            }
-            set {
-                dictionary[NSAttachmentAttributeName] = newValue
-            }
-        }
-        
-        /**
-         Sets the attachment attribute and returns the receiver.
-         
-         - parameter attachment: The text attachment.
-         
-         - returns: The receiver.
-         */
-        @discardableResult
-        public func attachment(_ attachment: NSTextAttachment?) -> Self {
-            self.attachment = attachment
-            return self
+        set {
+            dictionary[NSShadowAttributeName] = newValue
         }
     }
+    
+    /**
+     Sets the shadow attribute and returns the receiver.
+     
+     - parameter color:      The color of the shadow.
+     - parameter offset:     The offset values of the shadow.
+     - parameter blurRadius: The blur radius of the shadow.
+     
+     - returns: The receiver.
+     */
+    @discardableResult
+    public func shadow(color: AnyObject?, offset: CGSize, blurRadius: CGFloat) -> Self {
+        return shadow({
+            let shadow = NSShadow()
+            shadow.shadowColor = color
+            shadow.shadowOffset = offset
+            shadow.shadowBlurRadius = blurRadius
+            return shadow
+            }() as NSShadow)
+    }
+    
+    /**
+     Sets the shadow attribute and returns the receiver.
+     
+     - parameter shadow: The shadow.
+     
+     - returns: The receiver.
+     */
+    @discardableResult
+    public func shadow(_ shadow: NSShadow?) -> Self {
+        self.shadow = shadow
+        return self
+    }
+    
+    // MARK: - Attachment
+    
+    /// The attachment attribute.
+    public var attachment: NSTextAttachment? {
+        get {
+            return dictionary[NSAttachmentAttributeName] as? NSTextAttachment
+        }
+        set {
+            dictionary[NSAttachmentAttributeName] = newValue
+        }
+    }
+    
+    /**
+     Sets the attachment attribute and returns the receiver.
+     
+     - parameter attachment: The text attachment.
+     
+     - returns: The receiver.
+     */
+    @discardableResult
+    public func attachment(_ attachment: NSTextAttachment?) -> Self {
+        self.attachment = attachment
+        return self
+    }
+}
 
 
 //MARK: - Attributed strings -
@@ -1236,11 +1244,11 @@ extension NSAttributedString {
         self.init(string: string, attributes: attributes.dictionary)
     }
 
-    public convenience init(string: NSString, block: () -> TextAttributes) {
+    public convenience init(string: NSString, block: TextAttributesBlock) {
         self.init(string: string as String, block: block)
     }
 
-    public convenience init(string: String, block: () -> TextAttributes) {
+    public convenience init(string: String, block: TextAttributesBlock) {
         self.init(string: string, attributes: block().dictionary)
     }
 }
@@ -1303,9 +1311,28 @@ extension NSMutableAttributedString {
     public func addAttributes(_ attributes: TextAttributes, range: NSRange) {
         addAttributes(attributes.dictionary, range: range)
     }
+    
+    @discardableResult
+    public func append(_ string: String, block: TextAttributesBlock) -> Self {
+        append(NSAttributedString(string: string, block: block))
+        return self
+    }
 }
 
-//MARK: - Helpers -
+//MARK: - String, NSString -
+extension String {
+    public func attributed(_ block: () -> TextAttributes) -> NSAttributedString {
+        return NSAttributedString(string: self, block: block)
+    }
+}
+
+extension NSString {
+    public func attributed(_ block: () -> TextAttributes) -> NSAttributedString {
+        return NSAttributedString(string: self, block: block)
+    }
+}
+
+//MARK: - Range, Paragraph helpers -
 extension NSRange {
     init(_ range: Range<Int>) {
         self = NSRange(location: range.lowerBound, length: range.count)
@@ -1342,5 +1369,114 @@ extension NSMutableParagraphStyle {
         paragraphSpacingBefore = other.paragraphSpacingBefore
         baseWritingDirection   = other.baseWritingDirection
         lineHeightMultiple     = other.lineHeightMultiple
+//        hyphenationFactor      = other.hyphenationFactor
+//        tabStops               = other.tabStops
+//        defaultTabInterval     = other.defaultTabInterval
+//        allowsDefaultTighteningForTruncation = other.allowsDefaultTighteningForTruncation (iOS 9)
     }
+}
+
+// MARK: - Operators -
+public func + (lhs: NSAttributedString, rhs: NSAttributedString) -> NSAttributedString {
+    let result = NSMutableAttributedString()
+    result.append(lhs)
+    result.append(rhs)
+    return NSAttributedString(attributedString: result)
+}
+
+public func + (lhs: NSParagraphStyle, rhs: NSParagraphStyle) -> NSParagraphStyle {
+    let defaultParagraph = NSParagraphStyle.default
+    let combinedAttributes = lhs.mutableCopy() as! NSMutableParagraphStyle
+
+    if rhs.alignment != defaultParagraph.alignment {
+        combinedAttributes.alignment = rhs.alignment
+    }
+
+    if rhs.firstLineHeadIndent != defaultParagraph.firstLineHeadIndent {
+        combinedAttributes.firstLineHeadIndent = rhs.firstLineHeadIndent
+    }
+
+    if rhs.headIndent != defaultParagraph.headIndent {
+        combinedAttributes.headIndent = rhs.headIndent
+    }
+    
+    if rhs.tailIndent != defaultParagraph.tailIndent {
+        combinedAttributes.tailIndent = rhs.tailIndent
+    }
+
+    if rhs.lineBreakMode != defaultParagraph.lineBreakMode {
+        combinedAttributes.lineBreakMode = rhs.lineBreakMode
+    }
+
+    if rhs.minimumLineHeight != defaultParagraph.minimumLineHeight {
+        combinedAttributes.minimumLineHeight = rhs.minimumLineHeight
+    }
+    
+    if rhs.maximumLineHeight != defaultParagraph.maximumLineHeight {
+        combinedAttributes.maximumLineHeight = rhs.maximumLineHeight
+    }
+
+    if rhs.lineSpacing != defaultParagraph.lineSpacing {
+        combinedAttributes.lineSpacing = rhs.lineSpacing
+    }
+    
+    if rhs.paragraphSpacing != defaultParagraph.paragraphSpacing {
+        combinedAttributes.paragraphSpacing = rhs.paragraphSpacing
+    }
+    
+    if rhs.paragraphSpacingBefore != defaultParagraph.paragraphSpacingBefore {
+        combinedAttributes.paragraphSpacingBefore = rhs.paragraphSpacingBefore
+    }
+
+    if rhs.baseWritingDirection != defaultParagraph.baseWritingDirection {
+        combinedAttributes.baseWritingDirection = rhs.baseWritingDirection
+    }
+    
+    if rhs.lineHeightMultiple != defaultParagraph.lineHeightMultiple {
+        combinedAttributes.lineHeightMultiple = rhs.lineHeightMultiple
+    }
+    
+    
+    if rhs.hyphenationFactor != defaultParagraph.hyphenationFactor {
+        combinedAttributes.hyphenationFactor = rhs.hyphenationFactor
+    }
+    
+    if rhs.tabStops != defaultParagraph.tabStops {
+        combinedAttributes.tabStops = rhs.tabStops
+    }
+    
+    if rhs.defaultTabInterval != defaultParagraph.defaultTabInterval {
+        combinedAttributes.defaultTabInterval = rhs.defaultTabInterval
+    }
+    
+    if #available(iOS 9.0, *) {
+        if rhs.allowsDefaultTighteningForTruncation != defaultParagraph.allowsDefaultTighteningForTruncation {
+            combinedAttributes.allowsDefaultTighteningForTruncation = rhs.allowsDefaultTighteningForTruncation
+        }
+    }
+    
+    return combinedAttributes
+}
+
+public func + (lhs: TextAttributes, rhs: TextAttributes) -> TextAttributes {
+    var combined = lhs.dictionary
+    for (key, value) in rhs.dictionary {
+        combined[key] = value
+    }
+    
+    let combinedParagraphStyle: NSParagraphStyle?
+    let lhsParagraphStyle = lhs.dictionary[NSParagraphStyleAttributeName] as? NSParagraphStyle
+    let rhsParagraphStyle = rhs.dictionary[NSParagraphStyleAttributeName] as? NSParagraphStyle
+    
+    if let lhsParagraphStyle = lhsParagraphStyle, let rhsParagraphStyle = rhsParagraphStyle {
+        combinedParagraphStyle = lhsParagraphStyle + rhsParagraphStyle
+    } else {
+        combinedParagraphStyle = lhsParagraphStyle ?? rhsParagraphStyle
+    }
+    
+    if let paragraphStyle = combinedParagraphStyle {
+        combined[NSParagraphStyleAttributeName] = paragraphStyle
+    }
+
+    return TextAttributes(dictionary: combined)
 }
