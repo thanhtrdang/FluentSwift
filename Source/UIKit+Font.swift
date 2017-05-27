@@ -73,17 +73,17 @@ extension UIFont {
             let systemFontName: String
             switch weight {
             case .ultraLight:
-                systemFontName = FontFamily.helveticaNeueUltraLightItalic.rawValue
+                systemFontName = FontName.helveticaNeueUltraLightItalic.rawValue
             case .thin:
-                systemFontName = FontFamily.helveticaNeueThin.rawValue
+                systemFontName = FontName.helveticaNeueThin.rawValue
             case .light:
-                systemFontName = FontFamily.helveticaNeueLight.rawValue
+                systemFontName = FontName.helveticaNeueLight.rawValue
             case .regular:
-                systemFontName = FontFamily.helveticaNeue.rawValue
+                systemFontName = FontName.helveticaNeue.rawValue
             case .medium, .semibold:
-                systemFontName = FontFamily.helveticaNeueMedium.rawValue
+                systemFontName = FontName.helveticaNeueMedium.rawValue
             case .bold, .heavy, .black:
-                systemFontName = FontFamily.helveticaNeueBold.rawValue
+                systemFontName = FontName.helveticaNeueBold.rawValue
             }
             
             return UIFont(name: systemFontName, size: size.rawValue)!
@@ -109,7 +109,7 @@ extension UIFont {
 }
 
 // MARK: - UIFontComplete -
-public enum FontFamily: String, FontRepresentable {
+public enum FontName: String, FontRepresentable {
     
     // Font Family: Copperplate
     case copperplateLight = "Copperplate-Light"
@@ -517,7 +517,7 @@ extension FontRepresentable where Self.RawValue == String {
 }
 
 extension UIFont {
-    public convenience init?(font: FontFamily, size: FontSize) {
+    public convenience init?(font: FontName, size: FontSize) {
         self.init(name: font.rawValue, size: size.rawValue)
     }
 }
