@@ -319,6 +319,63 @@ public extension UITextField {
         return self
     }
 
+    // UITextInputTraits
+    
+    @discardableResult
+    public func autocapitalizationType(_ type: UITextAutocapitalizationType) -> Self {
+        autocapitalizationType = type
+        return self
+    }
+
+    @discardableResult
+    public func autocorrectionType(_ type: UITextAutocorrectionType) -> Self {
+        autocorrectionType = type
+        return self
+    }
+    
+    @discardableResult
+    public func spellCheckingType(_ type: UITextSpellCheckingType) -> Self {
+        spellCheckingType = type
+        return self
+    }
+
+    @discardableResult
+    public func keyboardType(_ type: UIKeyboardType) -> Self {
+        keyboardType = type
+        return self
+    }
+
+    @discardableResult
+    public func keyboardStyle(_ style: UIKeyboardAppearance) -> Self {
+        keyboardAppearance = style
+        return self
+    }
+    
+    @discardableResult
+    public func returnKeyType(_ type: UIReturnKeyType) -> Self {
+        returnKeyType = type
+        return self
+    }
+
+    @discardableResult
+    public func returnKeyWhenEmpty(_ disabled: Bool) -> Self {
+        enablesReturnKeyAutomatically = disabled
+        return self
+    }
+
+    @discardableResult
+    public func isSecureTextEntry(_ secured: Bool) -> Self {
+        isSecureTextEntry = secured
+        return self
+    }
+
+    @available(iOS 10.0, *)
+    @discardableResult
+    public func textContentType(_ type: UITextContentType) -> Self {
+        textContentType = type
+        return self
+    }
+
 }
 
 //MARK: - TextView -
