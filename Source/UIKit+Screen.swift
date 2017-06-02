@@ -27,7 +27,7 @@ public struct Screen {
     }
     
     /// Retrieves the device scale.
-    public static var scale: CGFloat {
+    public static var scale: CGFloat = {
         return UIScreen.main.scale
-    }
+    }()
 }
