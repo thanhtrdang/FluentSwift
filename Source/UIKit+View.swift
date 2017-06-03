@@ -358,7 +358,7 @@ public extension UITextField {
     }
 
     @discardableResult
-    public func returnKeyWhenEmpty(_ disabled: Bool) -> Self {
+    public func returnKeyWhenEmpty(disabled: Bool) -> Self {
         enablesReturnKeyAutomatically = disabled
         return self
     }
