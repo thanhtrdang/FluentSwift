@@ -40,7 +40,6 @@
 		6D7E73FF1ED6BBC1006E11C2 /* Foundation+Permissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7E73FE1ED6BBC1006E11C2 /* Foundation+Permissions.swift */; };
 		6D964CBF1ED99AB9008A0937 /* Foundation+File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D964CBE1ED99AB9008A0937 /* Foundation+File.swift */; };
 		6D964CC11ED99BFE008A0937 /* Foundation+Security.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D964CC01ED99BFE008A0937 /* Foundation+Security.swift */; };
-		6D97087E1EE2B875002D1CEB /* Foundation+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D97087D1EE2B875002D1CEB /* Foundation+URL.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,7 +101,6 @@
 		6D7E73FE1ED6BBC1006E11C2 /* Foundation+Permissions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Foundation+Permissions.swift"; sourceTree = "<group>"; };
 		6D964CBE1ED99AB9008A0937 /* Foundation+File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Foundation+File.swift"; sourceTree = "<group>"; };
 		6D964CC01ED99BFE008A0937 /* Foundation+Security.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Foundation+Security.swift"; sourceTree = "<group>"; };
-		6D97087D1EE2B875002D1CEB /* Foundation+URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Foundation+URL.swift"; sourceTree = "<group>"; };
 		C9F018A4540120FD4770A760 /* Pods_FluentSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FluentSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -199,7 +197,6 @@
 				6D7E73EB1ED68D1F006E11C2 /* FluentSwift.h */,
 				6D7E73F21ED6B984006E11C2 /* Foundation+Init.swift */,
 				6D06DB361ED95C6D0030D674 /* Foundation+String.swift */,
-				6D97087D1EE2B875002D1CEB /* Foundation+URL.swift */,
 				6D964CBE1ED99AB9008A0937 /* Foundation+File.swift */,
 				6D06DB381ED95C7D0030D674 /* Foundation+Time.swift */,
 				6D7E73F01ED6B8E9006E11C2 /* Foundation+Async.swift */,
@@ -434,7 +431,6 @@
 				6D06DB211ED93C920030D674 /* UIKit+ViewCorner.swift in Sources */,
 				6D06DB231ED93D420030D674 /* UIKit+ViewMask.swift in Sources */,
 				6D7E73BD1ED68C22006E11C2 /* AppDelegate.swift in Sources */,
-				6D97087E1EE2B875002D1CEB /* Foundation+URL.swift in Sources */,
 				6D964CC11ED99BFE008A0937 /* Foundation+Security.swift in Sources */,
 				6D06DB391ED95C7D0030D674 /* Foundation+Time.swift in Sources */,
 				6D7E73F31ED6B984006E11C2 /* Foundation+Init.swift in Sources */,

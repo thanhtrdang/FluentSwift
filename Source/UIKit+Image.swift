@@ -13,7 +13,7 @@ import UIKit
 
 //MARK: - Image -
 extension UIImage {
-    static let empty = UIImage()
+    public static let empty = UIImage()
 }
 
 //MARK: - UIImageView -
