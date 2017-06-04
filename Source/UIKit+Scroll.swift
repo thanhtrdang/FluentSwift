@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 // MARK: - ScrollView
-public class TPKeyboardAvoidingScrollView: UIScrollView, UITextFieldDelegate, UITextViewDelegate {
+public class KeyboardScrollView: UIScrollView, UITextFieldDelegate, UITextViewDelegate {
     override public var contentSize: CGSize {
         didSet {
             updateFromContentSizeChange()
@@ -70,7 +70,7 @@ public class TPKeyboardAvoidingScrollView: UIScrollView, UITextFieldDelegate, UI
     }
 }
 
-extension TPKeyboardAvoidingScrollView {
+extension KeyboardScrollView {
     fileprivate func setup() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(keyboardWillShow(_:)),
@@ -132,7 +132,7 @@ extension UIScrollView {
         state.keyboardVisible = true
         isPagingEnabled = false
         
-        if self is TPKeyboardAvoidingScrollView {
+        if self is KeyboardScrollView {
             state.priorContentSize = contentSize
             if contentSize == .zero {
                 contentSize = calculatedContentSizeFromSubviewFrames()
@@ -195,7 +195,7 @@ extension UIScrollView {
         
         UIView.animate(withDuration: TimeInterval(duration), delay: 0, options: options, animations: { [unowned self] in
             let state = self.state
-            if self is TPKeyboardAvoidingScrollView {
+            if self is KeyboardScrollView {
                 self.contentSize = self.state.priorContentSize
             }
             self.contentInset = state.priorInset
@@ -423,7 +423,7 @@ extension UIScrollView {
 }
 
 // MARK: - Internal object observer
-fileprivate class TPKeyboardAvoidingState: NSObject {
+fileprivate class KeyboardScrollState: NSObject {
     var priorInset = UIEdgeInsets.zero
     var priorScrollIndicatorInsets = UIEdgeInsets.zero
     
@@ -442,10 +442,10 @@ extension UIScrollView {
         static var DescriptiveName = "KeyBoard_DescriptiveName"
     }
     
-    fileprivate var state: TPKeyboardAvoidingState {
-        var state = objc_getAssociatedObject(self, &AssociatedKeysKeyboard.DescriptiveName) as? TPKeyboardAvoidingState
+    fileprivate var state: KeyboardScrollState {
+        var state = objc_getAssociatedObject(self, &AssociatedKeysKeyboard.DescriptiveName) as? KeyboardScrollState
         if state == nil {
-            state = TPKeyboardAvoidingState()
+            state = KeyboardScrollState()
             objc_setAssociatedObject(self, &AssociatedKeysKeyboard.DescriptiveName, state, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
         
