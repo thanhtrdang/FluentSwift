@@ -23,6 +23,7 @@
 		6D06DB391ED95C7D0030D674 /* Foundation+Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D06DB381ED95C7D0030D674 /* Foundation+Time.swift */; };
 		6D06DB3B1ED95E610030D674 /* UIKit+Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D06DB3A1ED95E610030D674 /* UIKit+Font.swift */; };
 		6D06DB3D1ED963590030D674 /* UIKit+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D06DB3C1ED963590030D674 /* UIKit+Text.swift */; };
+		6D1D0B691EE43FC00072E2DA /* UIKit+Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1D0B681EE43FC00072E2DA /* UIKit+Scroll.swift */; };
 		6D7E73BD1ED68C22006E11C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7E73BC1ED68C22006E11C2 /* AppDelegate.swift */; };
 		6D7E73BF1ED68C22006E11C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7E73BE1ED68C22006E11C2 /* ViewController.swift */; };
 		6D7E73C41ED68C22006E11C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D7E73C31ED68C22006E11C2 /* Assets.xcassets */; };
@@ -77,6 +78,7 @@
 		6D06DB381ED95C7D0030D674 /* Foundation+Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Foundation+Time.swift"; sourceTree = "<group>"; };
 		6D06DB3A1ED95E610030D674 /* UIKit+Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Font.swift"; sourceTree = "<group>"; };
 		6D06DB3C1ED963590030D674 /* UIKit+Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Text.swift"; sourceTree = "<group>"; };
+		6D1D0B681EE43FC00072E2DA /* UIKit+Scroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Scroll.swift"; sourceTree = "<group>"; };
 		6D7E73B91ED68C22006E11C2 /* FluentSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FluentSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D7E73BC1ED68C22006E11C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6D7E73BE1ED68C22006E11C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				6D06DB341ED95C110030D674 /* UIKit+Gesture.swift */,
 				6D06DB2E1ED95B620030D674 /* UIKit+Animation.swift */,
 				6D06DB301ED95B710030D674 /* UIKit+Transition.swift */,
+				6D1D0B681EE43FC00072E2DA /* UIKit+Scroll.swift */,
 				6D7E73EC1ED68D1F006E11C2 /* UIKit+View.swift */,
 				6D06DB2C1ED948FE0030D674 /* UIKit+ViewColor.swift */,
 				6D06DB1E1ED93A240030D674 /* UIKit+ViewBorder.swift */,
@@ -306,6 +309,7 @@
 					6D7E73B81ED68C22006E11C2 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = 9ZPM6TWX7W;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					6D7E73CC1ED68C22006E11C2 = {
@@ -436,6 +440,7 @@
 				6D7E73F31ED6B984006E11C2 /* Foundation+Init.swift in Sources */,
 				6D7E73ED1ED68D1F006E11C2 /* UIKit+View.swift in Sources */,
 				6D06DB311ED95B710030D674 /* UIKit+Transition.swift in Sources */,
+				6D1D0B691EE43FC00072E2DA /* UIKit+Scroll.swift in Sources */,
 				6D06DB291ED9464D0030D674 /* UIKit+ViewBlurEffect.swift in Sources */,
 				6D06DB2D1ED948FE0030D674 /* UIKit+ViewColor.swift in Sources */,
 				6D7E73F91ED6BA71006E11C2 /* UIKit+Screen.swift in Sources */,
@@ -595,11 +600,13 @@
 			baseConfigurationReference = 44D49F0720AB32894E3112B9 /* Pods-FluentSwift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 9ZPM6TWX7W;
 				INFOPLIST_FILE = FluentSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.thanhtrdang.FluentSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -609,6 +616,7 @@
 			baseConfigurationReference = 0F17FD150E0C7AAC9018FFCC /* Pods-FluentSwift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 9ZPM6TWX7W;
 				INFOPLIST_FILE = FluentSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
