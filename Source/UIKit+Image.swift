@@ -19,8 +19,14 @@ extension UIImage {
 //MARK: - UIImageView -
 extension UIImageView {
     @discardableResult
-    public func image(_ name: String) -> Self {
-        image = UIImage(named: name)
+    public func image(_ image: UIImage) -> Self {
+        self.image = image
+        return self
+    }
+    
+    @discardableResult
+    public func image(name: String) -> Self {
+        self.image = UIImage(named: name)
         return self
     }
 }

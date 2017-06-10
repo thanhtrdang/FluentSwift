@@ -92,20 +92,23 @@ extension UIFont {
 }
 
 extension UIFont {
-    public static let mega     = UIFont.systemFont(ofSize: .mega)
-    public static let h1       = UIFont.systemFont(ofSize: .h1)
-    public static let h1Medium = UIFont.systemFont(ofSize: .h1, weight: .medium)
-    public static let h2       = UIFont.systemFont(ofSize: .h2)
-    public static let h2Medium = UIFont.systemFont(ofSize: .h2, weight: .medium)
-    public static let h3       = UIFont.systemFont(ofSize: .h3)
-    public static let h3Medium = UIFont.systemFont(ofSize: .h3, weight: .medium)
-    public static let h4       = UIFont.systemFont(ofSize: .h4)
-    public static let h4Medium = UIFont.systemFont(ofSize: .h4, weight: .medium)
-    public static let h5       = UIFont.systemFont(ofSize: .h5)
-    public static let h5Medium = UIFont.systemFont(ofSize: .h5, weight: .medium)
-    public static let h6       = UIFont.systemFont(ofSize: .h6)
-    public static let h6Medium = UIFont.systemFont(ofSize: .h6, weight: .medium)
-    public static let min      = UIFont.systemFont(ofSize: .min)
+    public static let mega      = UIFont.systemFont(ofSize: .mega)
+    public static let megaHeavy = UIFont.systemFont(ofSize: .mega, weight: .heavy)
+    public static let h1        = UIFont.systemFont(ofSize: .h1)
+    public static let h1Medium  = UIFont.systemFont(ofSize: .h1, weight: .medium)
+    public static let h1Heavy   = UIFont.systemFont(ofSize: .h1, weight: .heavy)
+    public static let h2        = UIFont.systemFont(ofSize: .h2)
+    public static let h2Medium  = UIFont.systemFont(ofSize: .h2, weight: .medium)
+    public static let h2Heavy   = UIFont.systemFont(ofSize: .h2, weight: .heavy)
+    public static let h3        = UIFont.systemFont(ofSize: .h3)
+    public static let h3Medium  = UIFont.systemFont(ofSize: .h3, weight: .medium)
+    public static let h4        = UIFont.systemFont(ofSize: .h4)
+    public static let h4Medium  = UIFont.systemFont(ofSize: .h4, weight: .medium)
+    public static let h5        = UIFont.systemFont(ofSize: .h5)
+    public static let h5Medium  = UIFont.systemFont(ofSize: .h5, weight: .medium)
+    public static let h6        = UIFont.systemFont(ofSize: .h6)
+    public static let h6Medium  = UIFont.systemFont(ofSize: .h6, weight: .medium)
+    public static let min       = UIFont.systemFont(ofSize: .min)
 }
 
 // MARK: - UIFontComplete -

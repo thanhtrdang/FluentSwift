@@ -87,6 +87,12 @@ public extension UIButton {
         setBackgroundImage(background, for: state)
         return self
     }
+
+    @discardableResult
+    public func background(color: UIColor) -> Self {
+        backgroundColor = color
+        return self
+    }
 }
 
 // MARK: - TODO - Make it protocol and resolve Optional later
