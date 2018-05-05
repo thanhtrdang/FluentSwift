@@ -24,8 +24,6 @@
 		6D06DB3B1ED95E610030D674 /* UIKit+Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D06DB3A1ED95E610030D674 /* UIKit+Font.swift */; };
 		6D06DB3D1ED963590030D674 /* UIKit+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D06DB3C1ED963590030D674 /* UIKit+Text.swift */; };
 		6D1D0B691EE43FC00072E2DA /* UIKit+Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1D0B681EE43FC00072E2DA /* UIKit+Scroll.swift */; };
-		6D7A4CB0209E27CF0045428F /* FluentSwift.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 6D7A4CAE209E27CF0045428F /* FluentSwift.podspec */; };
-		6D7A4CB1209E27CF0045428F /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 6D7A4CAF209E27CF0045428F /* Podfile */; };
 		6D7E73BD1ED68C22006E11C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7E73BC1ED68C22006E11C2 /* AppDelegate.swift */; };
 		6D7E73BF1ED68C22006E11C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7E73BE1ED68C22006E11C2 /* ViewController.swift */; };
 		6D7E73C41ED68C22006E11C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D7E73C31ED68C22006E11C2 /* Assets.xcassets */; };
@@ -43,6 +41,7 @@
 		6D7E73FF1ED6BBC1006E11C2 /* Foundation+Permissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7E73FE1ED6BBC1006E11C2 /* Foundation+Permissions.swift */; };
 		6D964CBF1ED99AB9008A0937 /* Foundation+File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D964CBE1ED99AB9008A0937 /* Foundation+File.swift */; };
 		6D964CC11ED99BFE008A0937 /* Foundation+Security.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D964CC01ED99BFE008A0937 /* Foundation+Security.swift */; };
+		6DD13143209E624600E5AEA3 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 6DD13142209E624600E5AEA3 /* .swiftlint.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,7 +81,6 @@
 		6D06DB3C1ED963590030D674 /* UIKit+Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Text.swift"; sourceTree = "<group>"; };
 		6D1D0B681EE43FC00072E2DA /* UIKit+Scroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Scroll.swift"; sourceTree = "<group>"; };
 		6D7A4CAE209E27CF0045428F /* FluentSwift.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FluentSwift.podspec; sourceTree = "<group>"; };
-		6D7A4CAF209E27CF0045428F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		6D7E73B91ED68C22006E11C2 /* FluentSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FluentSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D7E73BC1ED68C22006E11C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6D7E73BE1ED68C22006E11C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +105,7 @@
 		6D7E73FE1ED6BBC1006E11C2 /* Foundation+Permissions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Foundation+Permissions.swift"; sourceTree = "<group>"; };
 		6D964CBE1ED99AB9008A0937 /* Foundation+File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Foundation+File.swift"; sourceTree = "<group>"; };
 		6D964CC01ED99BFE008A0937 /* Foundation+Security.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Foundation+Security.swift"; sourceTree = "<group>"; };
+		6DD13142209E624600E5AEA3 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		C9F018A4540120FD4770A760 /* Pods_FluentSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FluentSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -147,8 +146,8 @@
 		6D7E73B01ED68C22006E11C2 = {
 			isa = PBXGroup;
 			children = (
+				6DD13142209E624600E5AEA3 /* .swiftlint.yml */,
 				6D7A4CAE209E27CF0045428F /* FluentSwift.podspec */,
-				6D7A4CAF209E27CF0045428F /* Podfile */,
 				6D7E73EA1ED68D1F006E11C2 /* Source */,
 				6D7E73BB1ED68C22006E11C2 /* FluentSwift */,
 				6D7E73D01ED68C22006E11C2 /* FluentSwiftTests */,
@@ -357,10 +356,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DD13143209E624600E5AEA3 /* .swiftlint.yml in Resources */,
 				6D7E73C71ED68C22006E11C2 /* LaunchScreen.storyboard in Resources */,
 				6D7E73C41ED68C22006E11C2 /* Assets.xcassets in Resources */,
-				6D7A4CB1209E27CF0045428F /* Podfile in Resources */,
-				6D7A4CB0209E27CF0045428F /* FluentSwift.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,7 +409,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Pods/SwiftFormat/CommandLineTool/swiftformat --indent 2 ./Source";
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		6D7A4CB2209E27FF0045428F /* Swift Lint */ = {
 			isa = PBXShellScriptBuildPhase;

@@ -32,7 +32,7 @@ extension UIView {
 
 // MARK: - Helpers -
 
-fileprivate enum CornerSide {
+private enum CornerSide {
   case topLeft
   case topRight
   case bottomLeft

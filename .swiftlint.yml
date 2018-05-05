@@ -1,0 +1,6 @@
+disabled_rules:
+  - sorted_imports
+included:
+  - Source
+excluded:
+  - Pods

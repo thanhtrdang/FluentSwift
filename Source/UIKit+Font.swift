@@ -6,6 +6,8 @@
 //  Copyright © 2017 Thanh Dang. All rights reserved.
 //
 
+// swiftlint:disable file_length
+
 import UIKit
 
 // https://www.uber.design
@@ -30,6 +32,7 @@ public enum FontWeight {
   case black
 }
 
+// swiftlint:disable identifier_name
 public enum FontSize: CGFloat {
   case mega = 36
   case h1 = 28
@@ -42,7 +45,7 @@ public enum FontSize: CGFloat {
 }
 
 // MARK: - System font -
-
+// swiftlint:disable cyclomatic_complexity
 extension UIFont {
   @available(iOS 7, *)
   public class func systemFont(ofSize size: FontSize, weight: FontWeight = .regular) -> UIFont {
@@ -113,7 +116,7 @@ extension UIFont {
 }
 
 // MARK: - UIFontComplete -
-
+// swiftlint:disable type_body_length
 public enum FontName: String, FontRepresentable {
   // Font Family: Copperplate
   case copperplateLight = "Copperplate-Light"

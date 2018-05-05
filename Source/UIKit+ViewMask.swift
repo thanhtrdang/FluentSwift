@@ -50,11 +50,14 @@ public enum MaskType {
   case polygon(sides: Int)
   /// For star shape with n points (min: 3, default: 5)
   case star(points: Int)
-  /// For isosceles triangle shape. The triangle's height is equal to the view's frame height. If the view is a square, the triangle is equilateral.
+  /// For isosceles triangle shape.
+  /// The triangle's height is equal to the view's frame height.
+  /// If the view is a square, the triangle is equilateral.
   case triangle
   /// For wave shape with `direction` (up or down, default: up), width (default: 40) and offset (default: 0)
   case wave(direction: WaveDirection, width: Double, offset: Double)
-  ///  For parallelogram shape with an angle (default: 60). If `angle == 90` then it is a rectangular mask. If `angle < 90` then is a left-oriented parallelogram\-\
+  /// For parallelogram shape with an angle (default: 60).
+  /// If `angle == 90` then it is a rectangular mask. If `angle < 90` then is a left-oriented parallelogram\-\
   case parallelogram(angle: Double)
 
   /// Custom shape

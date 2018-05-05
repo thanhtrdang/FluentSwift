@@ -6,6 +6,8 @@
 //  Copyright © 2017 Thanh Dang. All rights reserved.
 //
 
+// swiftlint:disable file_length
+
 import Foundation
 
 // https://github.com/amayne/SwiftString
@@ -32,10 +34,14 @@ public extension String {
   ///  - parameter left:  The left bookend
   ///  - parameter right: The right bookend
   ///
-  ///  - returns: The string between the two bookends, or nil if the bookends cannot be found, the bookends are the same or appear contiguously.
+  ///  - returns: The string between the two bookends,
+  //    or nil if the bookends cannot be found,
+  //    the bookends are the same or appear contiguously.
   func between(left: String, _ right: String) -> String? {
     guard
-      let leftRange = range(of: left), let rightRange = range(of: right, options: .backwards), left != right && leftRange.upperBound != rightRange.lowerBound
+      let leftRange = range(of: left),
+      let rightRange = range(of: right, options: .backwards),
+      left != right && leftRange.upperBound != rightRange.lowerBound
     else { return nil }
 
     let rightRangeAgain = range(of: right, options: .backwards)
@@ -48,7 +54,8 @@ public extension String {
     let index = source.index(source.startIndex, offsetBy: 1)
     if source.contains(" ") {
       let first = source.prefix(upTo: index)
-      let cammel = NSString(format: "%@", (source.capitalized as NSString).replacingOccurrences(of: " ", with: "")) as String
+      let cammel = NSString(format: "%@", (source.capitalized as NSString)
+        .replacingOccurrences(of: " ", with: "")) as String
       let rest = String(cammel.dropFirst())
       return "\(first)\(rest)"
     } else {
@@ -142,9 +149,9 @@ public extension String {
     return words.reduce("") { ($0 == "" ? "" : $0[0 ... 0]) + $1[0 ... 0] }
   }
 
-  subscript(r: CountableClosedRange<Int>) -> String {
-    let startIndex = index(self.startIndex, offsetBy: r.lowerBound)
-    let endIndex = index(startIndex, offsetBy: r.upperBound - r.lowerBound)
+  subscript(range: CountableClosedRange<Int>) -> String {
+    let startIndex = index(self.startIndex, offsetBy: range.lowerBound)
+    let endIndex = index(startIndex, offsetBy: range.upperBound - range.lowerBound)
     return String(self[startIndex ... endIndex])
   }
 
@@ -167,7 +174,7 @@ public extension String {
   }
 
   func isNumeric() -> Bool {
-    if let _ = NumberFormatter().number(from: self) {
+    if NumberFormatter().number(from: self) != nil {
       return true
     }
     return false
@@ -189,20 +196,24 @@ public extension String {
     return count
   }
 
+  // swiftlint:disable identifier_name
   func pad(n: Int, _ string: String = " ") -> String {
     return "".join(elements: [string.times(n: n), self, string.times(n: n)])
   }
 
+  // swiftlint:disable identifier_name
   func pad(left n: Int, _ string: String = " ") -> String {
     return "".join(elements: [string.times(n: n), self])
   }
 
+  // swiftlint:disable identifier_name
   func pad(right n: Int, _ string: String = " ") -> String {
     return "".join(elements: [self, string.times(n: n)])
   }
 
   func slugify(with separator: Character = "-") -> String {
-    let slugCharacterSet = NSCharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789\(separator)")
+    let slugCharacterSet = NSCharacterSet(charactersIn:
+      "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789\(separator)")
     return latinize()
       .lowercased()
       .components(separatedBy: slugCharacterSet.inverted)
@@ -222,6 +233,7 @@ public extension String {
       .joined(separator: " ")
   }
 
+  // swiftlint:disable identifier_name
   func times(n: Int) -> String {
     return (0 ..< n).reduce("") { r, _ in r + self }
   }
@@ -241,9 +253,9 @@ public extension String {
   }
 
   func toDouble(locale: Locale = Locale.current) -> Double? {
-    let nf = NumberFormatter()
-    nf.locale = locale as Locale?
-    if let number = nf.number(from: self) {
+    let formatter = NumberFormatter()
+    formatter.locale = locale as Locale?
+    if let number = formatter.number(from: self) {
       return number.doubleValue
     }
     return nil
@@ -275,7 +287,8 @@ public extension String {
   }
 
   func trimmedRight() -> String {
-    if let range = rangeOfCharacter(from: NSCharacterSet.whitespacesAndNewlines.inverted, options: NSString.CompareOptions.backwards) {
+    if let range = rangeOfCharacter(from: NSCharacterSet.whitespacesAndNewlines.inverted,
+                                    options: NSString.CompareOptions.backwards) {
       return String(self[startIndex ..< range.upperBound])
     }
     return self
@@ -285,9 +298,9 @@ public extension String {
     return trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
   }
 
-  subscript(r: Range<Int>) -> String {
-    let startIndex = index(self.startIndex, offsetBy: r.lowerBound)
-    let endIndex = index(self.startIndex, offsetBy: r.upperBound - r.lowerBound)
+  subscript(range: Range<Int>) -> String {
+    let startIndex = index(self.startIndex, offsetBy: range.lowerBound)
+    let endIndex = index(self.startIndex, offsetBy: range.upperBound - range.lowerBound)
     return String(self[startIndex ..< endIndex])
   }
 
@@ -297,9 +310,9 @@ public extension String {
     return String(self[start ..< end])
   }
 
-  subscript(i: Int) -> Character {
-    let index = self.index(startIndex, offsetBy: i)
-    return self[index]
+  subscript(index: Int) -> Character {
+    let idx = self.index(startIndex, offsetBy: index)
+    return self[idx]
   }
 }
 
@@ -576,7 +589,7 @@ public extension String {
       "&spades;": "\u{2660}",
       "&clubs;": "\u{2663}",
       "&hearts;": "\u{2665}",
-      "&diams;": "\u{2666}",
+      "&diams;": "\u{2666}"
     ]
   }
 

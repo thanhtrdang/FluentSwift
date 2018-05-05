@@ -6,6 +6,8 @@
 //  Copyright © 2017 Thanh Dang. All rights reserved.
 //
 
+// swiftlint:disable file_length
+
 import UIKit
 
 // MARK: - Public API
@@ -30,7 +32,8 @@ extension UIView {
 
   @discardableResult
   public func gradient(predefinedType: GradientType, startPoint: GradientStartPoint) -> Self {
-    return gradient(startColor: predefinedType.colors.start, endColor: predefinedType.colors.end, startPoint: startPoint)
+    return gradient(startColor: predefinedType.colors.start, endColor: predefinedType.colors.end,
+                    startPoint: startPoint)
   }
 }
 
@@ -584,7 +587,7 @@ public enum GradientStartPoint {
   case none
 }
 
-fileprivate class PrivateGradientView: UIView {
+private class PrivateGradientView: UIView {
   init(frame: CGRect, gradientLayer: CAGradientLayer) {
     super.init(frame: frame)
     layer.insertSublayer(gradientLayer, at: 0)

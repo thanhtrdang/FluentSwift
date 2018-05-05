@@ -12,7 +12,8 @@ import UIKit
 
 extension UIView {
   @discardableResult
-  public func border(type: BorderType = .solid, color: UIColor? = .grey40, width: CGFloat = 1, sides: BorderSides = .all) -> Self {
+  public func border(type: BorderType = .solid, color: UIColor? = .grey40, width: CGFloat = 1,
+                     sides: BorderSides = .all) -> Self {
     // FIXME:
     //        if self is UITextField && width > 0 {
     //            type = .none
@@ -36,7 +37,7 @@ extension UIView {
 
 // MARK: - Helpers -
 
-fileprivate enum BorderSide {
+private enum BorderSide {
   case top
   case right
   case bottom
@@ -157,10 +158,12 @@ extension UIView {
       lines.append((start: CGPoint(x: 0, y: shift), end: CGPoint(x: bounds.size.width, y: shift)))
     }
     if sides.contains(.right) {
-      lines.append((start: CGPoint(x: bounds.size.width - shift, y: 0), end: CGPoint(x: bounds.size.width - shift, y: bounds.size.height)))
+      lines.append((start: CGPoint(x: bounds.size.width - shift, y: 0),
+                    end: CGPoint(x: bounds.size.width - shift, y: bounds.size.height)))
     }
     if sides.contains(.bottom) {
-      lines.append((start: CGPoint(x: 0, y: bounds.size.height - shift), end: CGPoint(x: bounds.size.width, y: bounds.size.height - shift)))
+      lines.append((start: CGPoint(x: 0, y: bounds.size.height - shift),
+                    end: CGPoint(x: bounds.size.width, y: bounds.size.height - shift)))
     }
     if sides.contains(.left) {
       lines.append((start: CGPoint(x: shift, y: 0), end: CGPoint(x: shift, y: bounds.size.height)))

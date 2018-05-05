@@ -6,6 +6,8 @@
 //  Copyright © 2017 Uta Apps. All rights reserved.
 //
 
+// swiftlint:disable file_length
+
 import UIKit
 
 // MARK: View -
@@ -46,7 +48,8 @@ public extension UIControl {
   }
 
   @discardableResult
-  public func align(vertical: UIControlContentVerticalAlignment = .center, horizontal: UIControlContentHorizontalAlignment = .center) -> Self {
+  public func align(vertical: UIControlContentVerticalAlignment = .center,
+                    horizontal: UIControlContentHorizontalAlignment = .center) -> Self {
     contentVerticalAlignment = vertical
     contentHorizontalAlignment = horizontal
     return self

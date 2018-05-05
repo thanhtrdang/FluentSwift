@@ -34,6 +34,7 @@ extension UIColor {
     let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
     var int = UInt32()
     Scanner(string: hex).scanHexInt32(&int)
+    // swiftlint:disable identifier_name
     let a, r, g, b: UInt32
     switch hex.count {
     case 3:
@@ -79,7 +80,7 @@ extension UIColor {
 }
 
 // MARK: - Components -
-
+// swiftlint:disable identifier_name
 extension UIColor {
   public var r: Int {
     var red: CGFloat = 0

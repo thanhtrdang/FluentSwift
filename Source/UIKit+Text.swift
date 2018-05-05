@@ -6,6 +6,8 @@
 //  Copyright © 2017 Thanh Dang. All rights reserved.
 //
 
+// swiftlint:disable file_length
+
 import UIKit
 
 // https://github.com/lexrus/LTMorphingLabel (effect)
@@ -1390,75 +1392,77 @@ public func + (lhs: NSAttributedString, rhs: NSAttributedString) -> NSAttributed
 
 public func + (lhs: NSParagraphStyle, rhs: NSParagraphStyle) -> NSParagraphStyle {
   let defaultParagraph = NSParagraphStyle.default
-  let combinedAttributes = lhs.mutableCopy() as! NSMutableParagraphStyle
-
-  if rhs.alignment != defaultParagraph.alignment {
-    combinedAttributes.alignment = rhs.alignment
-  }
-
-  if rhs.firstLineHeadIndent != defaultParagraph.firstLineHeadIndent {
-    combinedAttributes.firstLineHeadIndent = rhs.firstLineHeadIndent
-  }
-
-  if rhs.headIndent != defaultParagraph.headIndent {
-    combinedAttributes.headIndent = rhs.headIndent
-  }
-
-  if rhs.tailIndent != defaultParagraph.tailIndent {
-    combinedAttributes.tailIndent = rhs.tailIndent
-  }
-
-  if rhs.lineBreakMode != defaultParagraph.lineBreakMode {
-    combinedAttributes.lineBreakMode = rhs.lineBreakMode
-  }
-
-  if rhs.minimumLineHeight != defaultParagraph.minimumLineHeight {
-    combinedAttributes.minimumLineHeight = rhs.minimumLineHeight
-  }
-
-  if rhs.maximumLineHeight != defaultParagraph.maximumLineHeight {
-    combinedAttributes.maximumLineHeight = rhs.maximumLineHeight
-  }
-
-  if rhs.lineSpacing != defaultParagraph.lineSpacing {
-    combinedAttributes.lineSpacing = rhs.lineSpacing
-  }
-
-  if rhs.paragraphSpacing != defaultParagraph.paragraphSpacing {
-    combinedAttributes.paragraphSpacing = rhs.paragraphSpacing
-  }
-
-  if rhs.paragraphSpacingBefore != defaultParagraph.paragraphSpacingBefore {
-    combinedAttributes.paragraphSpacingBefore = rhs.paragraphSpacingBefore
-  }
-
-  if rhs.baseWritingDirection != defaultParagraph.baseWritingDirection {
-    combinedAttributes.baseWritingDirection = rhs.baseWritingDirection
-  }
-
-  if rhs.lineHeightMultiple != defaultParagraph.lineHeightMultiple {
-    combinedAttributes.lineHeightMultiple = rhs.lineHeightMultiple
-  }
-
-  if rhs.hyphenationFactor != defaultParagraph.hyphenationFactor {
-    combinedAttributes.hyphenationFactor = rhs.hyphenationFactor
-  }
-
-  if rhs.tabStops != defaultParagraph.tabStops {
-    combinedAttributes.tabStops = rhs.tabStops
-  }
-
-  if rhs.defaultTabInterval != defaultParagraph.defaultTabInterval {
-    combinedAttributes.defaultTabInterval = rhs.defaultTabInterval
-  }
-
-  if #available(iOS 9.0, *) {
-    if rhs.allowsDefaultTighteningForTruncation != defaultParagraph.allowsDefaultTighteningForTruncation {
-      combinedAttributes.allowsDefaultTighteningForTruncation = rhs.allowsDefaultTighteningForTruncation
+  if let combinedAttributes = lhs.mutableCopy() as? NSMutableParagraphStyle {
+    if rhs.alignment != defaultParagraph.alignment {
+      combinedAttributes.alignment = rhs.alignment
     }
-  }
 
-  return combinedAttributes
+    if rhs.firstLineHeadIndent != defaultParagraph.firstLineHeadIndent {
+      combinedAttributes.firstLineHeadIndent = rhs.firstLineHeadIndent
+    }
+
+    if rhs.headIndent != defaultParagraph.headIndent {
+      combinedAttributes.headIndent = rhs.headIndent
+    }
+
+    if rhs.tailIndent != defaultParagraph.tailIndent {
+      combinedAttributes.tailIndent = rhs.tailIndent
+    }
+
+    if rhs.lineBreakMode != defaultParagraph.lineBreakMode {
+      combinedAttributes.lineBreakMode = rhs.lineBreakMode
+    }
+
+    if rhs.minimumLineHeight != defaultParagraph.minimumLineHeight {
+      combinedAttributes.minimumLineHeight = rhs.minimumLineHeight
+    }
+
+    if rhs.maximumLineHeight != defaultParagraph.maximumLineHeight {
+      combinedAttributes.maximumLineHeight = rhs.maximumLineHeight
+    }
+
+    if rhs.lineSpacing != defaultParagraph.lineSpacing {
+      combinedAttributes.lineSpacing = rhs.lineSpacing
+    }
+
+    if rhs.paragraphSpacing != defaultParagraph.paragraphSpacing {
+      combinedAttributes.paragraphSpacing = rhs.paragraphSpacing
+    }
+
+    if rhs.paragraphSpacingBefore != defaultParagraph.paragraphSpacingBefore {
+      combinedAttributes.paragraphSpacingBefore = rhs.paragraphSpacingBefore
+    }
+
+    if rhs.baseWritingDirection != defaultParagraph.baseWritingDirection {
+      combinedAttributes.baseWritingDirection = rhs.baseWritingDirection
+    }
+
+    if rhs.lineHeightMultiple != defaultParagraph.lineHeightMultiple {
+      combinedAttributes.lineHeightMultiple = rhs.lineHeightMultiple
+    }
+
+    if rhs.hyphenationFactor != defaultParagraph.hyphenationFactor {
+      combinedAttributes.hyphenationFactor = rhs.hyphenationFactor
+    }
+
+    if rhs.tabStops != defaultParagraph.tabStops {
+      combinedAttributes.tabStops = rhs.tabStops
+    }
+
+    if rhs.defaultTabInterval != defaultParagraph.defaultTabInterval {
+      combinedAttributes.defaultTabInterval = rhs.defaultTabInterval
+    }
+
+    if #available(iOS 9.0, *) {
+      if rhs.allowsDefaultTighteningForTruncation != defaultParagraph.allowsDefaultTighteningForTruncation {
+        combinedAttributes.allowsDefaultTighteningForTruncation = rhs.allowsDefaultTighteningForTruncation
+      }
+    }
+
+    return combinedAttributes
+  } else {
+    return lhs
+  }
 }
 
 public func + (lhs: TextAttributes, rhs: TextAttributes) -> TextAttributes {

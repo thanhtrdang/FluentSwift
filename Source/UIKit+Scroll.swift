@@ -6,6 +6,8 @@
 //  Copyright © 2017 Thanh Dang. All rights reserved.
 //
 
+// swiftlint:disable file_length
+
 import Foundation
 import UIKit
 
@@ -44,13 +46,15 @@ public class KeyboardScrollView: UIScrollView, UITextFieldDelegate, UITextViewDe
   }
 
   func contentSizeToFit() {
-    contentSize = calculatedContentSizeFromSubviewFrames()
+    self.contentSize = calculatedContentSizeFromSubviewFrames()
   }
 
   public override func willMove(toSuperview newSuperview: UIView?) {
     super.willMove(toSuperview: newSuperview)
     if newSuperview != nil {
-      NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(assignTextDelegateForViewsBeneathView(_:)), object: self)
+      NSObject.cancelPreviousPerformRequests(withTarget: self,
+                                             selector: #selector(assignTextDelegateForViewsBeneathView(_:)),
+                                             object: self)
     }
   }
 
@@ -68,7 +72,9 @@ public class KeyboardScrollView: UIScrollView, UITextFieldDelegate, UITextViewDe
 
   public override func layoutSubviews() {
     super.layoutSubviews()
-    NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(assignTextDelegateForViewsBeneathView(_:)), object: self)
+    NSObject.cancelPreviousPerformRequests(withTarget: self,
+                                           selector: #selector(assignTextDelegateForViewsBeneathView(_:)),
+                                           object: self)
     perform(#selector(assignTextDelegateForViewsBeneathView(_:)), with: self, afterDelay: 0.1)
   }
 }
@@ -121,7 +127,8 @@ extension UIScrollView {
       return
     }
 
-    if state.ignoringNotifications && (firstResponder.frame.origin.y + kCalculatedContentPadding < keyboardRect.origin.y) {
+    if state.ignoringNotifications
+      && (firstResponder.frame.origin.y + kCalculatedContentPadding < keyboardRect.origin.y) {
       return
     }
 
@@ -139,7 +146,7 @@ extension UIScrollView {
     if self is KeyboardScrollView {
       state.priorContentSize = contentSize
       if contentSize == .zero {
-        contentSize = calculatedContentSizeFromSubviewFrames()
+        contentSize = self.calculatedContentSizeFromSubviewFrames()
       }
     }
 
@@ -163,13 +170,14 @@ extension UIScrollView {
         self.layoutIfNeeded()
 
         let viewableHeight = self.bounds.size.height - self.contentInset.top - self.contentInset.bottom
-        let point = CGPoint(x: self.contentOffset.x, y: self.idealOffsetForView(firstResponder, viewAreaHeight: viewableHeight))
+        let point = CGPoint(x: self.contentOffset.x,
+                            y: self.idealOffsetForView(firstResponder, viewAreaHeight: viewableHeight))
         self.setContentOffset(point, animated: false)
-      }) { [unowned self] finished in
+      }, completion: { [unowned self] finished in
         if finished {
           self.state.keyboardAnimationInProgress = false
         }
-      }
+      })
     }
   }
 
@@ -210,14 +218,14 @@ extension UIScrollView {
 
   fileprivate func updateContentInset() {
     if state.keyboardVisible {
-      contentInset = contentInsetForKeyboard()
+      contentInset = self.contentInsetForKeyboard()
     }
   }
 
   fileprivate func updateFromContentSizeChange() {
     if state.keyboardVisible {
       state.priorContentSize = contentSize
-      contentInset = contentInsetForKeyboard()
+      contentInset = self.contentInsetForKeyboard()
     }
   }
 
@@ -337,15 +345,15 @@ extension UIScrollView {
   }
 
   fileprivate func viewIsValidKeyViewCandidate(_ view: UIView) -> Bool {
-    if viewHiddenOrUserInteractionNotEnabled(view) {
+    if self.viewHiddenOrUserInteractionNotEnabled(view) {
       return false
     }
 
-    if view is UITextField && (view as! UITextField).isEnabled {
+    if view is UITextField && ((view as? UITextField)?.isEnabled)! {
       return true
     }
 
-    if view is UITextView && (view as! UITextView).isEditable {
+    if view is UITextView && ((view as? UITextView)?.isEditable)! {
       return true
     }
 
@@ -363,13 +371,16 @@ extension UIScrollView {
     return false
   }
 
-  fileprivate func findNextInputViewAfterView(_ priorView: UIView, beneathView view: UIView, candidateView bestCandidate: inout UIView?) {
+  fileprivate func findNextInputViewAfterView(_ priorView: UIView,
+                                              beneathView view: UIView,
+                                              candidateView bestCandidate: inout UIView?) {
     let priorFrame = convert(priorView.frame, from: priorView.superview)
-    let candidateFrame = bestCandidate == nil ? CGRect.zero : convert(bestCandidate!.frame, from: bestCandidate!.superview)
+    let candidateFrame = bestCandidate == nil ? CGRect.zero :
+      convert(bestCandidate!.frame, from: bestCandidate!.superview)
     var bestCandidateHeuristic = nextInputViewHeuristicForViewFrame(candidateFrame)
 
     for subview in view.subviews {
-      if viewIsValidKeyViewCandidate(subview) {
+      if self.viewIsValidKeyViewCandidate(subview) {
         let frame = convert(subview.frame, from: view)
         let heuristic = nextInputViewHeuristicForViewFrame(frame)
         if subview != priorView
@@ -381,7 +392,7 @@ extension UIScrollView {
           bestCandidateHeuristic = heuristic
         }
       } else {
-        findNextInputViewAfterView(priorView, beneathView: subview, candidateView: &bestCandidate)
+        self.findNextInputViewAfterView(priorView, beneathView: subview, candidateView: &bestCandidate)
       }
     }
   }
@@ -400,9 +411,9 @@ extension UIScrollView {
   @objc fileprivate func assignTextDelegateForViewsBeneathView(_ view: UIView) {
     for subview in view.subviews {
       if subview is UITextField || subview is UITextView {
-        initializeView(subview)
+        self.initializeView(subview)
       } else {
-        assignTextDelegateForViewsBeneathView(subview)
+        self.assignTextDelegateForViewsBeneathView(subview)
       }
     }
   }
@@ -422,7 +433,7 @@ extension UIScrollView {
 
 // MARK: - Internal object observer
 
-fileprivate class KeyboardScrollState: NSObject {
+private class KeyboardScrollState: NSObject {
   var priorInset = UIEdgeInsets.zero
   var priorScrollIndicatorInsets = UIEdgeInsets.zero
 
