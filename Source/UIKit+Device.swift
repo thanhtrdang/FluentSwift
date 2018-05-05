@@ -11,7 +11,8 @@ import UIKit
 // MARK: - Device -
 
 // https://github.com/CosmicMind/Material
-public enum DeviceModel {
+@objc(DeviceModel)
+public enum DeviceModel: Int {
   case iPodTouch5
   case iPodTouch6
   case iPhone4
@@ -105,6 +106,14 @@ public struct Device {
     Device.userInterfaceIdiom == .pad
   }()
 
+  public static var isTV: Bool = {
+    if #available(iOS 9.0, *) {
+      return Device.userInterfaceIdiom == .tv
+    } else {
+      return false
+    }
+  }()
+
   public static var isSimulator: Bool = {
     Device.model == .simulator
   }()
@@ -124,4 +133,12 @@ public struct Device {
   public static var languageCode: String = {
     Bundle.main.preferredLocalizations[0]
   }()
+}
+
+public func == (lhs: DeviceModel, rhs: DeviceModel) -> Bool {
+  return lhs.rawValue == rhs.rawValue
+}
+
+public func != (lhs: DeviceModel, rhs: DeviceModel) -> Bool {
+  return lhs.rawValue != rhs.rawValue
 }

@@ -51,13 +51,13 @@ class ViewController: UIViewController {
 //                return TextAttributes().foregroundColor(.blue)
 //            }
 //        
-        Async.background {
+//        Async.background {
 //            self.view.frame = .zero
 //            print("background frame - \(self.view.frame)")
             
             self.view.sizeThatFits(.zero)
-        }
-        
+//        }
+
     }
     
     @objc fileprivate func handleTap() {
