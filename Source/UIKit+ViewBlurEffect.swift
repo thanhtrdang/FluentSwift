@@ -8,11 +8,9 @@
 
 import UIKit
 
-//TODO
+// TODO:
 extension UIView {
-    
 }
 
 private class PrivateVisualEffectView: UIVisualEffectView {
-    
 }

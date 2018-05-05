@@ -24,6 +24,8 @@
 		6D06DB3B1ED95E610030D674 /* UIKit+Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D06DB3A1ED95E610030D674 /* UIKit+Font.swift */; };
 		6D06DB3D1ED963590030D674 /* UIKit+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D06DB3C1ED963590030D674 /* UIKit+Text.swift */; };
 		6D1D0B691EE43FC00072E2DA /* UIKit+Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1D0B681EE43FC00072E2DA /* UIKit+Scroll.swift */; };
+		6D7A4CB0209E27CF0045428F /* FluentSwift.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 6D7A4CAE209E27CF0045428F /* FluentSwift.podspec */; };
+		6D7A4CB1209E27CF0045428F /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 6D7A4CAF209E27CF0045428F /* Podfile */; };
 		6D7E73BD1ED68C22006E11C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7E73BC1ED68C22006E11C2 /* AppDelegate.swift */; };
 		6D7E73BF1ED68C22006E11C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7E73BE1ED68C22006E11C2 /* ViewController.swift */; };
 		6D7E73C41ED68C22006E11C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D7E73C31ED68C22006E11C2 /* Assets.xcassets */; };
@@ -79,6 +81,8 @@
 		6D06DB3A1ED95E610030D674 /* UIKit+Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Font.swift"; sourceTree = "<group>"; };
 		6D06DB3C1ED963590030D674 /* UIKit+Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Text.swift"; sourceTree = "<group>"; };
 		6D1D0B681EE43FC00072E2DA /* UIKit+Scroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Scroll.swift"; sourceTree = "<group>"; };
+		6D7A4CAE209E27CF0045428F /* FluentSwift.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FluentSwift.podspec; sourceTree = "<group>"; };
+		6D7A4CAF209E27CF0045428F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		6D7E73B91ED68C22006E11C2 /* FluentSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FluentSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D7E73BC1ED68C22006E11C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6D7E73BE1ED68C22006E11C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +147,8 @@
 		6D7E73B01ED68C22006E11C2 = {
 			isa = PBXGroup;
 			children = (
+				6D7A4CAE209E27CF0045428F /* FluentSwift.podspec */,
+				6D7A4CAF209E27CF0045428F /* Podfile */,
 				6D7E73EA1ED68D1F006E11C2 /* Source */,
 				6D7E73BB1ED68C22006E11C2 /* FluentSwift */,
 				6D7E73D01ED68C22006E11C2 /* FluentSwiftTests */,
@@ -245,6 +251,8 @@
 			buildConfigurationList = 6D7E73E11ED68C22006E11C2 /* Build configuration list for PBXNativeTarget "FluentSwift" */;
 			buildPhases = (
 				58333C48DCB6868D231FA33D /* [CP] Check Pods Manifest.lock */,
+				6D24FC74209E35220065E00D /* Swift Format */,
+				6D7A4CB2209E27FF0045428F /* Swift Lint */,
 				6D7E73B51ED68C22006E11C2 /* Sources */,
 				6D7E73B61ED68C22006E11C2 /* Frameworks */,
 				6D7E73B71ED68C22006E11C2 /* Resources */,
@@ -351,6 +359,8 @@
 			files = (
 				6D7E73C71ED68C22006E11C2 /* LaunchScreen.storyboard in Resources */,
 				6D7E73C41ED68C22006E11C2 /* Assets.xcassets in Resources */,
+				6D7A4CB1209E27CF0045428F /* Podfile in Resources */,
+				6D7A4CB0209E27CF0045428F /* FluentSwift.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +398,34 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		6D24FC74209E35220065E00D /* Swift Format */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Format";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Pods/SwiftFormat/CommandLineTool/swiftformat --indent 2 ./Source";
+		};
+		6D7A4CB2209E27FF0045428F /* Swift Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Lint";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#if which swiftlint >/dev/null; then\n#swiftlint\n#else\n#echo \"warning: SwiftLint not installed, download from #https://github.com/realm/SwiftLint\"\n#fi";
 		};
 		C8E5E4E3D3D353B7DF4B7FF2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

@@ -3,5 +3,7 @@ use_frameworks!
 
 target 'FluentSwift' do
 	pod 'Then'
-    pod 'Material'
+  pod 'Material'
+#pod 'SwiftLint'
+  pod 'SwiftFormat/CLI'
 end

@@ -8,25 +8,27 @@
 
 import UIKit
 
-//http://www.jessesquires.com/swift-namespaced-constants/
-//https://medium.com/@gurdeep060289/color-image-new-literals-in-the-cocoa-town-7ef4f2710194
+// http://www.jessesquires.com/swift-namespaced-constants/
+// https://medium.com/@gurdeep060289/color-image-new-literals-in-the-cocoa-town-7ef4f2710194
 
-//MARK: - Image -
+// MARK: - Image -
+
 extension UIImage {
-    public static let empty = UIImage()
+  public static let empty = UIImage()
 }
 
-//MARK: - UIImageView -
+// MARK: - UIImageView -
+
 extension UIImageView {
-    @discardableResult
-    public func image(_ image: UIImage) -> Self {
-        self.image = image
-        return self
-    }
-    
-    @discardableResult
-    public func image(name: String) -> Self {
-        self.image = UIImage(named: name)
-        return self
-    }
+  @discardableResult
+  public func image(_ image: UIImage) -> Self {
+    self.image = image
+    return self
+  }
+
+  @discardableResult
+  public func image(name: String) -> Self {
+    image = UIImage(named: name)
+    return self
+  }
 }
