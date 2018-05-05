@@ -39,7 +39,7 @@ public extension String {
             else { return nil }
         
         let rightRangeAgain = range(of: right, options: .backwards)
-        return self[leftRange.upperBound...right.index(before: (rightRangeAgain?.lowerBound)!)]
+        return String(self[leftRange.upperBound...right.index(before: (rightRangeAgain?.lowerBound)!)])
         
     }
     
@@ -47,14 +47,14 @@ public extension String {
     func camelize() -> String {
         let source = clean(with: " ", allOf: "-", "_")
         let index = source.index(source.startIndex, offsetBy: 1)
-        if source.characters.contains(" ") {
-            let first = source.substring(to: index)
+        if source.contains(" ") {
+            let first = source.prefix(upTo: index)
             let cammel = NSString(format: "%@", (source.capitalized as NSString).replacingOccurrences(of: " ", with: "")) as String
-            let rest = String(cammel.characters.dropFirst())
+            let rest = String(cammel.dropFirst())
             return "\(first)\(rest)"
         } else {
-            let first = (source as NSString).lowercased.substring(to: index)
-            let rest = String(source.characters.dropFirst())
+            let first = (source as NSString).lowercased.prefix(upTo: index)
+            let rest = String(source.dropFirst())
             return "\(first)\(rest)"
         }
     }
@@ -70,9 +70,9 @@ public extension String {
     func chomp(left prefix: String) -> String {
         if let prefixRange = range(of: prefix) {
             if prefixRange.upperBound >= endIndex {
-                return self[startIndex..<prefixRange.lowerBound]
+                return String(self[startIndex..<prefixRange.lowerBound])
             } else {
-                return self[prefixRange.upperBound..<endIndex]
+                return String(self[prefixRange.upperBound..<endIndex])
             }
         }
         return self
@@ -81,9 +81,9 @@ public extension String {
     func chomp(right suffix: String) -> String {
         if let suffixRange = range(of: suffix, options: .backwards) {
             if suffixRange.upperBound >= endIndex {
-                return self[startIndex..<suffixRange.lowerBound]
+                return String(self[startIndex..<suffixRange.lowerBound])
             } else {
-                return self[suffixRange.upperBound..<endIndex]
+                return String(self[suffixRange.upperBound..<endIndex])
             }
         }
         return self
@@ -147,12 +147,12 @@ public extension String {
         get {
             let startIndex =  self.index(self.startIndex, offsetBy: r.lowerBound)
             let endIndex = self.index(startIndex, offsetBy: r.upperBound - r.lowerBound)
-            return self[startIndex...endIndex]
+            return String(self[startIndex...endIndex])
         }
     }
     
     func isAlpha() -> Bool {
-        for chr in characters {
+        for chr in self {
             if (!(chr >= "a" && chr <= "z") && !(chr >= "A" && chr <= "Z") ) {
                 return false
             }
@@ -190,7 +190,7 @@ public extension String {
     
     var length: Int {
         get {
-            return self.characters.count
+            return self.count
         }
     }
     
@@ -215,10 +215,6 @@ public extension String {
             .joined(separator: String(separator))
     }
     
-    func split(separator: Character) -> [String] {
-        return characters.split{$0 == separator}.map(String.init)
-    }
-    
     func starts(with prefix: String) -> Bool {
         return hasPrefix(prefix)
     }
@@ -232,7 +228,7 @@ public extension String {
     }
     
     func times(n: Int) -> String {
-        return (0..<n).reduce("") { $0.0 + self }
+        return (0..<n).reduce("") { r, _ in r + self }
     }
     
     func toFloat() -> Float? {
@@ -251,7 +247,7 @@ public extension String {
     
     func toDouble(locale: Locale = Locale.current) -> Double? {
         let nf = NumberFormatter()
-        nf.locale = locale as Locale!
+        nf.locale = locale as Locale?
         if let number = nf.number(from: self) {
             return number.doubleValue
         }
@@ -278,14 +274,14 @@ public extension String {
     
     func trimmedLeft() -> String {
         if let range = rangeOfCharacter(from: NSCharacterSet.whitespacesAndNewlines.inverted) {
-            return self[range.lowerBound..<endIndex]
+            return String(self[range.lowerBound..<endIndex])
         }
         return self
     }
     
     func trimmedRight() -> String {
         if let range = rangeOfCharacter(from: NSCharacterSet.whitespacesAndNewlines.inverted, options: NSString.CompareOptions.backwards) {
-            return self[startIndex..<range.upperBound]
+            return String(self[startIndex..<range.upperBound])
         }
         return self
     }
@@ -298,14 +294,14 @@ public extension String {
         get {
             let startIndex = self.index(self.startIndex, offsetBy: r.lowerBound)
             let endIndex = self.index(self.startIndex, offsetBy: r.upperBound - r.lowerBound)
-            return self[startIndex..<endIndex]
+            return String(self[startIndex..<endIndex])
         }
     }
     
     func substring(startIndex: Int, length: Int) -> String {
         let start = self.index(self.startIndex, offsetBy: startIndex)
         let end = self.index(self.startIndex, offsetBy:startIndex + length)
-        return self[start..<end]
+        return String(self[start..<end])
     }
     
     subscript(i: Int) -> Character {
@@ -611,10 +607,10 @@ public extension String {
     private func decode(entity : String) -> Character? {
         if entity.hasPrefix("&#x") || entity.hasPrefix("&#X"){
             let index = entity.index(entity.startIndex, offsetBy: 3)
-            return decodeNumeric(string: entity.substring(from: index), base: 16)
+          return decodeNumeric(string: String(entity.suffix(from: index)), base: 16)
         } else if entity.hasPrefix("&#") {
             let index = entity.index(entity.startIndex, offsetBy: 2)
-            return decodeNumeric(string: entity.substring(from: index), base: 10)
+          return decodeNumeric(string: String(entity.suffix(from: index)), base: 10)
         } else {
             return HTMLEntities.characterEntities[entity]
         }
@@ -630,7 +626,7 @@ public extension String {
         
         // Find the next '&' and copy the characters preceding it to `result`:
         while let ampRange = self.range(of: "&", range: position ..< endIndex) {
-            result.append(self[position ..< ampRange.lowerBound])
+            result.append(String(self[position ..< ampRange.lowerBound]))
             position = ampRange.lowerBound
             
             // Find the next ';' and copy everything from '&' to ';' into `entity`
@@ -638,12 +634,12 @@ public extension String {
                 let entity = self[position ..< semiRange.upperBound]
                 position = semiRange.upperBound
                 
-                if let decoded = decode(entity: entity) {
+                if let decoded = decode(entity: String(entity)) {
                     // Replace by decoded character:
                     result.append(decoded)
                 } else {
                     // Invalid entity, copy verbatim:
-                    result.append(entity)
+                    result.append(contentsOf: entity)
                 }
             } else {
                 // No matching ';'.
@@ -651,7 +647,7 @@ public extension String {
             }
         }
         // Copy remaining characters to `result`:
-        result.append(self[position ..< endIndex])
+        result.append(String(self[position ..< endIndex]))
         return result
     }
 }
@@ -678,9 +674,9 @@ public extension String {
         finalScore = 0.0,
         string = self,
         lString = string.lowercased(),
-        strLength = string.characters.count,
+        strLength = string.count,
         lWord = word.lowercased(),
-        wordLength = word.characters.count,
+        wordLength = word.count,
         idxOf: String.Index!,
         startAt = lString.startIndex,
         fuzzies = 1.0,

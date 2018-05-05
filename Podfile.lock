@@ -1,17 +1,28 @@
 PODS:
-  - Material (2.6.3):
-    - Material/Core (= 2.6.3)
-  - Material/Core (2.6.3)
-  - Then (2.1.0)
+  - Material (2.15.0):
+    - Material/Core (= 2.15.0)
+  - Material/Core (2.15.0):
+    - Motion (~> 1.3.0)
+  - Motion (1.3.5):
+    - Motion/Core (= 1.3.5)
+  - Motion/Core (1.3.5)
+  - Then (2.3.0)
 
 DEPENDENCIES:
   - Material
   - Then
 
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Material
+    - Motion
+    - Then
+
 SPEC CHECKSUMS:
-  Material: af607a7ec0e9978ef85cf189a3d8ceeeb650400f
-  Then: 8496793c8fcac95482b943909b440724c7d8d82c
+  Material: 00e32bb5e61b3f749044897b2d93acd8bf33faa4
+  Motion: 9f74d115d7f72bb5380a8e3cde2f8a1fc898ac36
+  Then: ee21c97b85ff6062b9b0080c9abb1eea46743345
 
 PODFILE CHECKSUM: 8750709bd51eb1b2eabab50d985288ea3ccde5b8
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.5.0

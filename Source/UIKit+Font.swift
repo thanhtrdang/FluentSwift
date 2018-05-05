@@ -46,47 +46,47 @@ extension UIFont {
     @available(iOS 7, *)
     public class func systemFont(ofSize size: FontSize, weight: FontWeight = .regular) -> UIFont {
         if #available(iOS 8.2, *) {
-            let fontWeight: CGFloat
+            let fontWeight: UIFont.Weight
             switch weight {
             case .ultraLight:
-                fontWeight = UIFontWeightUltraLight
+                fontWeight = .ultraLight
             case .thin:
-                fontWeight = UIFontWeightThin
+                fontWeight = .thin
             case .light:
-                fontWeight = UIFontWeightLight
+                fontWeight = .light
             case .regular:
-                fontWeight = UIFontWeightRegular
+                fontWeight = .regular
             case .medium:
-                fontWeight = UIFontWeightMedium
+                fontWeight = .medium
             case .semibold:
-                fontWeight = UIFontWeightSemibold
+                fontWeight = .semibold
             case .bold:
-                fontWeight = UIFontWeightBold
+                fontWeight = .bold
             case .heavy:
-                fontWeight = UIFontWeightHeavy
+                fontWeight = .heavy
             case .black:
-                fontWeight = UIFontWeightBlack
+                fontWeight = .black
             }
             
             return UIFont.systemFont(ofSize: size.rawValue, weight: fontWeight)
         } else {
-            let systemFontName: String
+            let systemFontName: FontName
             switch weight {
             case .ultraLight:
-                systemFontName = FontName.helveticaNeueUltraLightItalic.rawValue
+                systemFontName = .helveticaNeueUltraLightItalic
             case .thin:
-                systemFontName = FontName.helveticaNeueThin.rawValue
+                systemFontName = .helveticaNeueThin
             case .light:
-                systemFontName = FontName.helveticaNeueLight.rawValue
+                systemFontName = .helveticaNeueLight
             case .regular:
-                systemFontName = FontName.helveticaNeue.rawValue
+                systemFontName = .helveticaNeue
             case .medium, .semibold:
-                systemFontName = FontName.helveticaNeueMedium.rawValue
+                systemFontName = .helveticaNeueMedium
             case .bold, .heavy, .black:
-                systemFontName = FontName.helveticaNeueBold.rawValue
+                systemFontName = .helveticaNeueBold
             }
             
-            return UIFont(name: systemFontName, size: size.rawValue)!
+            return UIFont(name: systemFontName.rawValue, size: size.rawValue)!
         }
     }
 }
